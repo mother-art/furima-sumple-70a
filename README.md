@@ -11,8 +11,8 @@
 |email|string|null: false|
 |password|string|null: false|
 ## Association
-- has_many :products
-- has_many :comments
+- has_many :Products
+- has_many :Comments
 - belongs_to: Address
 - belongs_to: Card
 - belongs_to: Sns_credential
@@ -27,7 +27,7 @@
 |street_num|string|null:false|
 |building|string|  |
 ## Association
-- belongs_to: user
+- belongs_to: User
 
 ## Cards
 |Column|Type|Options|
@@ -37,7 +37,7 @@
 |card_id|integer|null:false|
 |token|string|null:false|
 ## Association
-- belongs_to: user
+- belongs_to: User
 
 
 ## Sns_credentials
@@ -47,7 +47,7 @@
 |u_id|integer|null:false|
 |provider|string|null:salse|
 ## Association
-- belongs_to: user
+- belongs_to: User
 
 ## productsテーブル
 |Column|Type|Options|
@@ -64,18 +64,18 @@
 |ship_date|string|null: false|
 
 ### Association
-- belongs_to :user
+- belongs_to :User
 - has_many :Images
 - has_many :Main_tags
-- has_many :comments
+- has_many :Comments
 
 ## Main_tagsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |main_tag|string|null: false|
 ### Association
-- has_many : sub_tags
-- belongs_to :product
+- has_many : Sub_tags
+- belongs_to :Product
 
 ## sub_tagsテーブル
 |Column|Type|Options|
@@ -83,21 +83,22 @@
 |sub_tag|text|null: false|
 ### Association
 - belongs_to : Main＿tag
-- has_many : sub2_tags
+- has_many : Sub2_tags
 
 ## sub2_tagsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |sub_tag2|text|null: false|
 ### Association
-- belongs_to : sub_tag
+- belongs_to : Sub_tag
 
 ##  Images
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
+|product_id|integer||
 ### Association
-- belongs_to : product
+- belongs_to : Product
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -106,6 +107,6 @@
 |user_id|integer|null: false, foreign_key: true|
 |product_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
-- belongs_to :product
+- belongs_to :User
+- belongs_to :Product
 
