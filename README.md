@@ -1,24 +1,100 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# freemarket_sample_70a DB設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null:false|
+|name|string|null:false|
+|name_kana|string|null:false|
+|sex|string|null:false|
+|tel|string|null:false|
+|email|string|null: false|
+|password|string|null: false|
+## Association
+- has_many :products
+- has_many :comments
+- has_one :address
+- has_one :card
+- has_one :sns_credential
 
-Things you may want to cover:
+## adresses
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer||null:false, foreign_key: true|
+|zip_code|string|null:false|
+|prefecture|string|null:false|
+|city|string|null:false|
+|street_num|string|null:false|
+|building|string|  |
+## Association
+- belongs_to: user
 
-* Ruby version
+## cards
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false, foreign_key: true|
+|customer_id|integer|null:false|
+|card_id|integer|null:false|
+|token|string|null:false|
+## Association
+- belongs_to: user
 
-* System dependencies
 
-* Configuration
+## sns_credentials
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false, foreign_key: true|
+|u_id|integer|null:false|
+|provider|string|null:salse|
+## Association
+- belongs_to: user
 
-* Database creation
+## productsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false, foreign_key: true|
+|item_name|string|null:false|
+|detail|string|null:false|
+|category|string||
+|price|integer|null:false|
+|item_status|string|null:false|
+|postage_cost|integer|null: false|
+|ship_area|string|null:false|
+|ship_method|string|null: false|
+|ship_date|string|null: false|
 
-* Database initialization
+### association
+- belongs_to :user
+- has_many :images
+- has_many :main_tags
+- has_many :comments
 
-* How to run the test suite
+## main_tagsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|tag_name|string|null: false|
+|product_id|integer|null: false, foreign_key: true|
+｜ancestry｜string｜null: false|
+### Association
+- belongs_to :product
+<!-- ancestryというgemを用いる。 -->
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+##  imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false|
+|product_id|integer|null: false,foreign_key: true|
+### Association
+- belongs_to : product
 
-* ...
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|body|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|product_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :product
+
