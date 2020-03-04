@@ -14,6 +14,7 @@
 - has_many :products
 - has_many :comments
 - belongs_to: Address
+- belongs_to: Card
 - belongs_to: Sns_credential
 
 ## Adresses
@@ -24,7 +25,17 @@
 |prefecture|string|null:false|
 |city|string|null:false|
 |street_num|string|null:false|
-|building|string||
+|building|string|  |
+## Association
+- belongs_to: user
+
+## Cards
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false, foreign_key: true|
+|customer_id|integer|null:false|
+|card_id|integer|null:false|
+|token|string|null:false|
 ## Association
 - belongs_to: user
 
