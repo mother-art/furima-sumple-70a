@@ -13,9 +13,9 @@
 ## Association
 - has_many :products
 - has_many :comments
-- belongs_to: address
-- belongs_to: card
-- belongs_to: sns_credential
+- has_one :address
+- has_one :card
+- has_one :sns_credential
 
 ## adresses
 |Column|Type|Options|
@@ -72,26 +72,13 @@
 ## main_tagsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|main_tag|string|null: false|
+|tag_name|string|null: false|
 |product_id|integer|null: false, foreign_key: true|
+｜ancestry｜string｜null: false|
 ### Association
-- has_many : sub_tags
 - belongs_to :product
+<!-- ancestryというgemを用いる。 -->
 
-## sub_tagsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|sub_tag|text|null: false|
-### Association
-- belongs_to : Main＿tag
-- has_many : sub2_tags
-
-## sub2_tagsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|sub_tag2|text|null: false|
-### Association
-- belongs_to : sub_tag
 
 ##  imagesテーブル
 |Column|Type|Options|
