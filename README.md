@@ -73,6 +73,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |main_tag|string|null: false|
+|product_id|integer|null: false, foreign_key: true|
 ### Association
 - has_many : Sub_tags
 - belongs_to :Product
@@ -96,7 +97,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|product_id|integer||
+|product_id|integer|null: false,foreign_key: true|
 ### Association
 - belongs_to : Product
 
