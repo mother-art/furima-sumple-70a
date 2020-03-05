@@ -10,6 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_03_05_075535) do
+
+  create_table "adresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "zip_code", null: false
+    t.string "prefecture", null: false
+    t.string "city", null: false
+    t.string "street_num", null: false
+    t.string "building"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "last_name_kana", null: false
+    t.string "sex", null: false
+    t.string "tel", null: false
+    t.string "email", null: false
+    t.string "password", null: false
+    t.string "encrypted_password", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["tel"], name: "index_users_on_tel", unique: true
+  end
 
 end
