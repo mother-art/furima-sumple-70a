@@ -17,7 +17,7 @@
         a {
           width: 144px;
           display: block;
-          img {
+          .logo-img {
             width: 100%;
             vertical-align: bottom;
           }
@@ -46,7 +46,7 @@
       background-color: #3CCACE;
       padding: 8px;
       .searchbox__icon {
-        img {
+        .search-img {
           width: 100%;
             vertical-align: bottom;
         }
