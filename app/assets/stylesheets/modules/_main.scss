@@ -1,7 +1,6 @@
 .main {
   height: 100vh;
   width: 100vw;
-  background-color: pink;
   .firstview {
     width: 100%;
     height: 560px;
@@ -12,6 +11,7 @@
     display: flex;
     align-items: center;
     &__box {
+      font-family: $default-font-family;
       &__catch-copy {
         color: white;
         text-shadow: 0 0 4px black;
@@ -31,20 +31,10 @@
         display: flex;
         justify-content: space-between;
         &__left {
-          margin-top: 35px;
-          background-image: url(dlc-btn/a-btn.svg);
-          background-size: cover;
-          background-position:center;
-          width: 205px;
-          height: 60px;
+          @include top-page-a-btn();
         }
         &__right {
-          margin-top: 20px;
-          background-image: url(dlc-btn/g-btn.png);
-          background-size: cover;
-          background-position: center;
-          width: 210px;
-          height: 90px;
+          @include top-page-g-btn();
         }
       }
     }
@@ -55,53 +45,190 @@
       height: 150px;
       background-color: white;
       @include display-center();
+      text-shadow: 0 0 3px gray;
       flex-direction: column;
       strong {
         font-size: 25px;
         font-weight: bold;
       }
       p {
-        border-bottom: solid 4px cyan;
+        border-bottom: solid 4px $default-color;
         width: 60px;
+        box-shadow: 0 0 3px gray;
       }
     }
     &__box {
       display: flex;
-      justify-content: space-around;
-      background-color: darkmagenta;
+      justify-content: center;
       &__inner {
-        height: 400px;
-        width: 220px;
-        background-color: red;
+        height: 500px;
+        width: 320px;
+        margin: 0 15px;
         &__image1 {
-          height: 220px;
-          width: 220px;
-          background-color: yellow;
+          @include work-box-inner-image();
           background-image: url(pict/pict-reason-01.jpg);
-          background-size: cover;
-          background-position: center;
           &__number {
-            height: 60px;
-            width: 60px;
-            background-color: $default-color;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
+            @include work-box-inner-image-number();
+            @include display-center();
+          }
+        }
+        &__image2 {
+          @include work-box-inner-image();
+          background-image: url(pict/pict-reason-02.jpg);
+          &__number {
+            @include work-box-inner-image-number();
+            @include display-center();
+          }
+        }
+        &__image3 {
+          @include work-box-inner-image();
+          background-image: url(pict/pict-reason-03.jpg);
+          &__number {
+            @include work-box-inner-image-number();
             @include display-center();
           }
         }
         &__text {
+          @include default-text-style();
           &__head {
             font-weight: bold;
-            font-size: 20px;
+            font-size: 17px;
             height: 50px;
             @include display-center();
             span {
-              color: cyan;
+              color: $default-color;
+              margin: 0 7px;
             }
-            &__info {
-              padding: 10px;
+          }
+          &__info {
+            margin-top: 20px;
+            width: 100%;
+            font-family: $default-font-family;
+          }
+        }
+      }
+      &__inner2 {
+        height: 550px;
+        width: 250px;
+        margin: 0 20px;
+        &__image4 {
+          @include work-box-inner-image2();
+          background-image: url(icons/icon-01.png);
+        }
+        &__image5 {
+          @include work-box-inner-image2();
+          background-image: url(icons/icon-03.png);
+        }
+        &__image6 {
+          @include work-box-inner-image2();
+          background-image: url(icons/icon-04.png);
+        }
+        &__text {
+          @include default-text-style();
+          &__head {
+            font-weight: bold;
+            font-size: 17px;
+            height: 50px;
+            @include display-center();
+            span {
+              color: $default-color;
+              margin: 0 7px;
             }
+          }
+          &__info {
+            margin-top: 20px;
+            height: 180px;
+            width: 100%;
+            font-family: $default-font-family;
+          }
+        }
+      }
+    }
+  }
+  .secondview {
+    height: 400px;
+    background-image: url(pict/bg-topMiddleDl-pict.jpg);
+    background-size: cover;
+    background-position:center;
+    display: flex;
+    align-items: center;
+    &__box {
+      margin-left: 50px;
+      text-shadow: 0 0 5px grey;
+      color: white;
+      &__title {
+        font-size: 30px;
+      }
+      &__about {
+        font-size: 15px;
+        margin-top: 20px;
+      }
+      &__items {
+        display: flex;
+        &__left {
+          @include top-page-a-btn();
+        }
+        &__right {
+          @include top-page-g-btn();
+        }
+      }
+    }
+  }
+  .pickup {
+    background-color: rgb(250, 250, 250);
+    height: 600px;
+    width: 100vw;
+    &__title {
+      @include default-text-style();
+      @include display-center();
+      &__in {
+        margin-top: 70px;
+        font-size: 25px;
+        font-weight: bold;
+        color: black;
+        text-align: center;
+      }
+      p {
+        font-size: 20px;
+        color: $default-color;
+        margin-bottom: 35px;
+      }
+    }
+    &__item {
+      height: 400px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      a {
+        height: 100%;
+        text-decoration: none;
+        margin: 0 10px;
+        width: 350px;
+        background-color: white;
+        .pickup__item__image {
+          @include work-box-inner-image3();
+          background-image: url(items/item1);
+        }
+        .pickup__item__image2 {
+          @include work-box-inner-image3();
+          background-image: url(items/item2);
+        }
+        .pickup__item__image3 {
+          @include work-box-inner-image3();
+          background-image: url(items/item3);
+        }
+        .pickup__item__info {
+          height: 100px;
+          color: black;
+          padding: 5px 5px;
+          &__name {
+          }
+          &__price {
+            display: flex;
+            justify-content: space-between;
+          }
+          &__tax {
+            font-size: 13px;
           }
         }
       }

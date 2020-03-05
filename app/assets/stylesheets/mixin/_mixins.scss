@@ -3,3 +3,60 @@
   align-items: center;
   justify-content: center;
 }
+
+@mixin default-text-style() {
+  font-family: $default-font-family;
+  text-shadow: $default-font-shadow;
+}
+
+@mixin work-box-inner-image {
+  height: calc(100% - 230px);
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+@mixin work-box-inner-image2 {
+  height: calc(100% - 190px);
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+}
+
+@mixin work-box-inner-image3 {
+  height: calc(100% - 100px);
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin work-box-inner-image-number {
+  height: 55px;
+  width: 55px;
+  border-radius: 45px;
+  background-color: $default-color;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@mixin top-page-g-btn {
+  margin-top: 20px;
+  background-image: url(dlc-btn/g-btn.png);
+  background-size: cover;
+  background-position: center;
+  width: 210px;
+  height: 90px;
+}
+
+@mixin top-page-a-btn {
+  margin-top: 35px;
+  background-image: url(dlc-btn/a-btn.svg);
+  background-size: cover;
+  background-position:center;
+  width: 205px;
+  height: 60px;
+}
