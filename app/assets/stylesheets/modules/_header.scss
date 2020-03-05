@@ -1,0 +1,114 @@
+.pcheader {
+  height: 104px;
+  padding: 0 64px;
+  
+  .headerinner {
+    margin: 0 auto;
+    padding: 16px 0 0 ;
+    .mainheader {
+      position: relative;
+      display: flex;
+      align-items: center;
+      .icon {
+        padding-bottom: 8px;
+        margin-right: 32px;
+        border-radius: 4;
+        background-color: green($color: #000000);
+        a {
+          width: 144px;
+          display: block;
+          img {
+            width: 100%;
+            vertical-align: bottom;
+          }
+        }
+      }
+    }
+  }
+}
+
+.searchbox {
+  margin-left: auto;
+  width: 100%;
+  form {
+    width: 100%;
+    margin-bottom: 4px;
+    display: flex;
+    input {
+      width: calc(100% - 24px);
+      height: 32px;
+      padding: 0, 0, 4px;
+    }
+    button {
+      width: 32px;
+      border: 0;
+      cursor: pointer;
+      background-color: #3CCACE;
+      padding: 8px;
+      .searchbox__icon {
+        img {
+          width: 100%;
+            vertical-align: bottom;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+.nav {
+  font-size: 14px;
+  display: flex;
+  margin-bottom: 12px;
+  line-height: 40px;
+  
+  .leftlist {
+    position: relative;
+    display: flex;
+    &__category {
+      padding: 0;
+      a {
+        background-image: url("#");
+        text-decoration: none;
+        padding-right: 32px;
+        color: black;
+      }
+    }
+    &__brand {
+      padding: 0;
+      a {
+        background-image: url("#");
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+  .rightlist {
+    margin-left: auto;
+    display: flex;
+    &__login {
+      line-height: 40px;
+      padding: 0, 0, 16px;
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        line-height: 32px;
+        color: black;
+      }
+    }
+    &__new {
+      line-height: 40px;
+      padding-left: 16px;
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        line-height: 32px;
+        color: black;
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+%body
+  %header.pcheader
+    .headerinner
+      .mainheader
+        %h1.icon
+          %a{:href => "/"}
+            %img{:src => "/logo.png"}/
+        .searchbox
+          %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
+            %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+            %input#searchinput.searchbox--input{:name => "key", :placeholder => "キーワードから探す"}/
+            %form.button_to{:action => "/?type=submit", :method => ""}
+              %button{:type => "submit"}
+                .searchbox__icon
+                  %img{:src => "/icon-search 1.png"}/
+        %ul.resultLists
+      .nav
+        %ul.leftlist
+          %li.leftlist__category
+            %a#catbtn{:href => "#"} カテゴリー
+          %li.leftlist__brand
+            %a#brandbtn{:href => "#"} ブランド
+            %ul.brand
+        %ul.rightlist
+          %li.rightlist__login
+            %a{:href => "#"} ログイン
+          %li.rightlist__new
+            %a{:href => "#"} 新規会員登録
