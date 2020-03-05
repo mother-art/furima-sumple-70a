@@ -1,0 +1,110 @@
+.main {
+  height: 100vh;
+  width: 100vw;
+  background-color: pink;
+  .firstview {
+    width: 100%;
+    height: 560px;
+    padding: 0 60px;
+    background-image: url(pict/bg-mainVisual-pict_pc.jpg);
+    background-size: cover;
+    background-position:center;
+    display: flex;
+    align-items: center;
+    &__box {
+      &__catch-copy {
+        color: white;
+        text-shadow: 0 0 4px black;
+        font-size: 60px;
+      }
+      &__about {
+        color: white;
+        text-shadow: 0 0 4px black;
+        font-size: 15px;
+        p {
+          margin: 0 0 2px 5px;
+        }
+      }
+      &__items {
+        height: 20px;
+        width: 450px;
+        display: flex;
+        justify-content: space-between;
+        &__left {
+          margin-top: 35px;
+          background-image: url(dlc-btn/a-btn.svg);
+          background-size: cover;
+          background-position:center;
+          width: 205px;
+          height: 60px;
+        }
+        &__right {
+          margin-top: 20px;
+          background-image: url(dlc-btn/g-btn.png);
+          background-size: cover;
+          background-position: center;
+          width: 210px;
+          height: 90px;
+        }
+      }
+    }
+  }
+  .work {
+    &__title {
+      width: 100%;
+      height: 150px;
+      background-color: white;
+      @include display-center();
+      flex-direction: column;
+      strong {
+        font-size: 25px;
+        font-weight: bold;
+      }
+      p {
+        border-bottom: solid 4px cyan;
+        width: 60px;
+      }
+    }
+    &__box {
+      display: flex;
+      justify-content: space-around;
+      background-color: darkmagenta;
+      &__inner {
+        height: 400px;
+        width: 220px;
+        background-color: red;
+        &__image1 {
+          height: 220px;
+          width: 220px;
+          background-color: yellow;
+          background-image: url(pict/pict-reason-01.jpg);
+          background-size: cover;
+          background-position: center;
+          &__number {
+            height: 60px;
+            width: 60px;
+            background-color: $default-color;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            @include display-center();
+          }
+        }
+        &__text {
+          &__head {
+            font-weight: bold;
+            font-size: 20px;
+            height: 50px;
+            @include display-center();
+            span {
+              color: cyan;
+            }
+            &__info {
+              padding: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+} 
