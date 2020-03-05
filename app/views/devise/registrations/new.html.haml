@@ -1,0 +1,37 @@
+%h2.head__registration 会員情報入力
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .content__nickname
+    = f.label :nickname, 'ニックネーム'
+    %span.content_require 必須
+    %br
+    = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: "例)ハマる  小僧"
+  .l-single-content__email
+  .field
+  .field-label
+    = f.label :カナ
+  .field-input
+    = f.text_field :name, autofocus: true  
+  .field
+    .field-label
+      = f.label :nickname , 'ニックネーム'
+    .field-input
+      = f.text_field :name, autofocus: true  
+  .field
+    = f.label :email , 'メールアドレス'
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    = f.label :password ,'パスワード'
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+    %br/
+    = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  .actions
+    = f.submit "Sign up"
+= render "devise/shared/links"
