@@ -1,0 +1,99 @@
+.header
+-# 部分テンプレート
+.wrapper
+  .topContents
+    .contents
+      .itembox
+        %h1.itembox__name item-yusername
+        .itembox__imagebox
+          %ul.imagebig
+            %li#bigimage
+              =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+            %ul.imagesmale
+              %li#smaleimage
+                =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+              %li
+                =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png"
+              %li
+                =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png"
+        .itembox__price
+          %span.plice ¥30,000
+          .itembox__price-ditail
+          %span (税込)
+          %span 送料込み
+      .itembox__Dtail
+        %span 親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+      .itemtable
+        %table
+          %tb
+            %tr
+              %th 出品者
+              %td hoge
+
+            %tr
+              %th カテゴリー
+              %td
+                %ul
+                  %li
+                    =link_to "#" do
+                      ベビー・キッズ
+                  %li
+                    =link_to "#" do
+                      ベビー服(男女兼用) ~95cm
+                  %li
+                    =link_to "#" do
+                      アウター
+            %tr
+              %th  ブランド
+              %td
+            %tr
+              %th  商品のサイズ
+              %td
+            %tr
+              %th  商品の状態
+              %td  未使用に近い
+            %tr
+              %th  発送料の負担
+              %td  送料込み（出品者負担）
+            %tr
+              %th  発送元の地域
+              %td
+                =link_to "#" do
+                  岩手県
+            %tr
+              %th  発送日の目安
+              %td  4-7日で発送
+      .optionArea
+        %ul
+          %li.okini
+            =link_to "#" do
+              %i{class: "fa fa-star"}
+              お気に入り 0
+        %ul
+          %li.hata
+            =link_to "#" do
+              %i{class: "fa fa-flag"}
+              不適切な商品の通報
+      -# コメントフォーム
+      .item-coments
+        =form_for "#" do |f|
+          =f.text_area :content
+          %p 相手のことを考え丁寧なコメントを心がけましょう。 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %button{name:"button", type:"submit",class:"commentBtn"}
+            %i{class:"fa fa-comment"}
+            コメントする
+      -# footerの上のやつ
+  .topform
+    .befor
+      =link_to "#" do
+        %i{class: "fas fa-angle-left"}
+        前のページ
+    .befor
+      =link_to "#" do
+        次のページページ
+        %i{class: "fas fa-angle-right"}
+  .relatedItem
+    =link_to "#" do
+      ベビー・キッズをもっと見る
+.footer
+-# 部分テンプレー
