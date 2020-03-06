@@ -5,18 +5,45 @@
     = f.label :nickname, 'ニックネーム'
     %span.content_require 必須
     %br
-    = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: "例)ハマる  小僧"
-  .l-single-content__email
+    = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: "例)メルカリ太郎"
+  
   .field
   .field-label
-    = f.label :カナ
+    = f.label :first_name, '苗字'
   .field-input
-    = f.text_field :name, autofocus: true  
+    = f.text_field :name, autofocus: true
+
   .field
-    .field-label
-      = f.label :nickname , 'ニックネーム'
+  .field-label
+    = f.label :last_name, '名前'
+  .field-input
+    = f.text_field :name, autofocus: true
+  .field
+  .field-label
+    = f.label :first_name_kana, '苗字（かな）'
+  .field-input
+    = f.text_field :name, autofocus: true
+  .field
+  .field-label
+    = f.label :last_name_kana, '名前（かな）'
+  .field-input
+    = f.text_field :name  , autofocus: true
+  .form-group
+    = f.label :name,'電話番号'
+    %span.login-header-registration__form--must 必須
+    %br/
+    = f.text_field :name, autofocus: true
+
+  .field
+  .field-label
+    =f.label:sex,'性別'
     .field-input
-      = f.text_field :name, autofocus: true  
+      = f.radio_button :sex, "男"
+      男
+    .field-input
+      = f.radio_button :sex, "女"
+      女
+
   .field
     = f.label :email , 'メールアドレス'
     %br/
