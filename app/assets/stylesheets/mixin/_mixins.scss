@@ -29,8 +29,9 @@
 @mixin work-box-inner-image3 {
   height: calc(100% - 100px);
   width: 100%;
-  background-size: cover;
-  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
 }
 
 @mixin work-box-inner-image-number {

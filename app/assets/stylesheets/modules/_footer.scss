@@ -1,0 +1,87 @@
+.footer {
+  &__top {
+    background-color: greenyellow;
+    background-image: url(pict/bg-appBanner-pict.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    @include display-center();
+    &__box {
+      &__text {
+        @include default-text-style();
+        text-align: center;
+        font-weight: bold;
+        color: white;
+        font-size: 25px;
+        p {
+          font-size: 30px;
+          font-weight: normal;
+        }
+      }
+      &__item {
+        display: flex;
+        justify-content: center;
+        a {
+          height: 20px;
+          .footer__top__box__item__left {
+            @include top-page-a-btn();
+          }
+          .footer__top__box__item__right {
+            @include top-page-g-btn();
+          }
+        }
+      }
+    }
+  }
+  &__bottom {
+    height: 350px;
+    width: 100%;
+    background-color: rgb(58, 58, 58);
+    &__menu {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      &__inner {
+        @include default-text-style();
+        margin: 0 10px;
+        width: 240px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        &__title {
+          margin-top: 20px;
+          font-size: 20px;
+          color: white;
+          margin-bottom: 30px;
+        }
+        &__item {
+          color: white;
+          font-size: 12px;
+          display: flex;
+          flex-direction: column;
+          width: 240px;
+          a {
+            margin-bottom: 30px;
+            color: white;
+            text-decoration: none;
+            p {
+              margin-bottom: 30px;
+            }
+            .icon {
+              background-image: url(logo/logo-white.png);
+              background-repeat: no-repeat;
+              background-size: contain;
+              background-position: center center;
+              height: 80px;
+              width: 100%;
+            }
+          }
+          p {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}
