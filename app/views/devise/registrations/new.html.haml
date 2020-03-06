@@ -5,34 +5,34 @@
     = f.label :nickname, 'ニックネーム'
     %span.content_require 必須
     %br
-    = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: "例)メルカリ太郎"
+    = f.text_field :nickname, autocomplete: "nickname", placeholder: "例)メルカリ太郎"
   
   .field
   .field-label
     = f.label :first_name, '苗字'
   .field-input
-    = f.text_field :name, autofocus: true
+    = f.text_field :first_name
 
   .field
   .field-label
     = f.label :last_name, '名前'
   .field-input
-    = f.text_field :name, autofocus: true
+    = f.text_field :last_name
   .field
   .field-label
     = f.label :first_name_kana, '苗字（かな）'
   .field-input
-    = f.text_field :name, autofocus: true
+    = f.text_field :first_name_kana
   .field
   .field-label
     = f.label :last_name_kana, '名前（かな）'
   .field-input
-    = f.text_field :name  , autofocus: true
+    = f.text_field :last_name_kana
   .form-group
-    = f.label :name,'電話番号'
+    = f.label :tel,'電話番号'
     %span.login-header-registration__form--must 必須
     %br/
-    = f.text_field :name, autofocus: true
+    = f.text_field :tel
 
   .field
   .field-label
@@ -47,7 +47,7 @@
   .field
     = f.label :email , 'メールアドレス'
     %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
+    = f.email_field :email, autocomplete: "email"
   .field
     = f.label :password ,'パスワード'
     - if @minimum_password_length
