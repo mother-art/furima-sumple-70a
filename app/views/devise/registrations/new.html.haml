@@ -1,64 +1,70 @@
-%h2.head__registration 会員情報入力
+
+.login-header-registration 
+  .login-header-registration__index 
+    %b
+      会員情報入力
+  .login-header-registration__form  
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render "devise/shared/error_messages", resource: resource
-  .content__nickname
-    = f.label :nickname, 'ニックネーム'
-    %span.content_require 必須
-    %br
-    = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: "例)メルカリ太郎"
+  .login-header-registration__form-content
+    .form-group
+      = f.label 'ニックネーム',class:'login-header-registration__label'
+      = f.label 'メールアドレス',class: 'login-header-registration__label'
+      %span.login-header-registration__form--must 必須
+      %br
+      = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: "例)メルカリ太郎"
+    .form-group 
+      = f.label 'メールアドレス',class: 'login-header-registration__label'
+      %span.login-header-registration__form--must 必須
+      %br/
+      = f.email_field :email, placeholder: 'PC・携帯どちらでも可',class: 'input-default',required: true
+    .form-group
+      = f.label 'パスワード' ,class: 'login-header-registration__label'
+      %span.login-header-registration__form--must 必須
+      %br/
+      = f.password_field :password, placeholder: '7文字以上',class: 'input-default',required: true
+    .form-group 
+      = f.label 'パスワード確認', class: 'login-header-registration__label' 
+      %span.login-header-registration__form--must 必須
+      %br/
+      = f.password_field :encrypted_password, placeholder: '7文字以上',class: 'input-default',required: true
+    %p.userloginform-into__sub-head
+      %b
+        本人確認
+      .userloginform-into__sub-head__text
+      安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません
+    .form-group 
+      = f.label 'お名前(全角)' ,class: 'login-header-registration__label' 
+      %span.login-header-registration__form--must 必須
+      %br/
+      .form-group-double
+        = f.text_field :name, placeholder: '例）野比',class: 'input-default-half',required: true
+        = f.text_field :name, placeholder: '例) のび太',class: 'input-default-half',required: true
+    .form-group 
+      = f.label 'お名前カナ(全角)' ,class: 'login-header-registration__label' 
+      %span.login-header-registration__form--must 必須
+      %br/
+      .form-group-double
+        = f.text_field :name, placeholder: '例）ノビ',class: 'input-default-half',required: true
+        = f.text_field :name, placeholder: '例) ノビタ',class: 'input-default-half',required: true
+   
+    .form-group
+      = f.label :tel,'電話番号'
+      %span.login-header-registration__form--must 必須
+      %br/
+      = f.text_field :name, required: true
+    %p.userloginform-into
+      ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+
+    .form-group
+      =f.label :sex,'性別'
+      .field-input
+        = f.radio_button :sex, "men"
+        男
+      .field-input
+        = f.radio_button :sex, "female"
+        女
   
-  .field
-  .field-label
-    = f.label :first_name, '苗字'
-  .field-input
-    = f.text_field :name, autofocus: true
-
-  .field
-  .field-label
-    = f.label :last_name, '名前'
-  .field-input
-    = f.text_field :name, autofocus: true
-  .field
-  .field-label
-    = f.label :first_name_kana, '苗字（かな）'
-  .field-input
-    = f.text_field :name, autofocus: true
-  .field
-  .field-label
-    = f.label :last_name_kana, '名前（かな）'
-  .field-input
-    = f.text_field :name  , autofocus: true
-  .form-group
-    = f.label :name,'電話番号'
-    %span.login-header-registration__form--must 必須
-    %br/
-    = f.text_field :name, autofocus: true
-
-  .field
-  .field-label
-    =f.label:sex,'性別'
-    .field-input
-      = f.radio_button :sex, "男"
-      男
-    .field-input
-      = f.radio_button :sex, "女"
-      女
-
-  .field
-    = f.label :email , 'メールアドレス'
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password ,'パスワード'
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
   .actions
     = f.submit "Sign up"
 = render "devise/shared/links"
