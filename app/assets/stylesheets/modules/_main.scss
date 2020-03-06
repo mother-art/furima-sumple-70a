@@ -1,5 +1,5 @@
 .main {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   .firstview {
     width: 100%;
@@ -204,7 +204,6 @@
         text-decoration: none;
         margin: 0 10px;
         width: 350px;
-        background-color: white;
         .pickup__item__image {
           @include work-box-inner-image3();
           background-image: url(items/item1);
@@ -219,15 +218,19 @@
         }
         .pickup__item__info {
           height: 100px;
+          width: 100%;
           color: black;
           padding: 5px 5px;
           &__name {
+            padding: 0 20px;
           }
           &__price {
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
           }
           &__tax {
+            padding: 0 20px;
             font-size: 13px;
           }
         }
@@ -235,3 +238,31 @@
     }
   }
 } 
+.exhibition-btn {
+  height: 120px;
+  width: 120px;
+  background-color: $default-color;
+  position: fixed;
+  right: 30px;
+  bottom: 40px;
+  font-weight: bold;
+  border-radius: 30px;
+  a {
+    @include display-center();
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    .exhibition-btn--link {
+      @include display-center();
+      flex-direction: column;
+      p {
+        font-size: 15px;
+      }
+      i {
+        font-size: 50px;
+      }
+
+    }
+  }
+}

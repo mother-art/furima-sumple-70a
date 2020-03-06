@@ -1,7 +1,7 @@
 .pcheader {
-  height: 104px;
+  height: 120px;
   padding: 0 64px;
-  
+  border-bottom: solid 0.1px cyan;
   .headerinner {
     margin: 0 auto;
     padding: 16px 0 0 ;
@@ -67,8 +67,9 @@
   .leftlist {
     position: relative;
     display: flex;
+    @include default-text-style();
     &__category {
-      padding: 0;
+      margin: 0 16px;
       a {
         background-image: url("#");
         text-decoration: none;
@@ -86,6 +87,7 @@
     }
   }
   .rightlist {
+    @include default-text-style();
     margin-left: auto;
     display: flex;
     &__login {
