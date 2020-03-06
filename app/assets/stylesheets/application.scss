@@ -1,3 +1,5 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "reset";
 @import "config/variable";
 @import "mixin/mixins";
@@ -6,3 +8,4 @@
 @import "mypage";
 @import "modules/posts";
 @import "modules/user";
+@import "modules/login";

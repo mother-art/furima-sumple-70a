@@ -1,17 +1,44 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.login-header
+  .login-header__icon
+    = image_tag '/logo.png'
+
+.login-main
+  .login-panel
+    .login-facebook
+      %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
+        %i.fab.fa-facebook-square
+        Facebookでログイン
+    .login-google
+      %button#google-login.btn-default.btn-sns.btn-sns-google
+        %i.fab.fa-google
+        Googleでログイン
+    %form{:action => "", :method => "POST", :novalidate => "novalidate"}
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+        
+        %br/
+        = f.email_field :email, autofocus: true, placeholder: "メールアドレス",autocomplete: "email"
+      .field
+        
+        %br/
+        = f.password_field :password, placeholder: "パスワード", autocomplete: "current-password"
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me
+          
+      .actions
+        = f.submit "ログイン"
+        
+    = render "devise/shared/links"
+    %nav
+      %ul.clearfix
+        %li
+          %a{:href => ""} プライバシーポリシー
+        %li
+          %a{:href => ""} フリマ利用規約
+        %li
+          %a{:href => ""} 特定商取引に関する表記
+    %a{:href => ""}
+      %img{:src => ""}/
+
+
