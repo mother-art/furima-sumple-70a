@@ -1,7 +1,7 @@
 .footer {
   &__top {
     background-color: greenyellow;
-    background-image: url(pict/bg-appBanner-pict.jpg);
+    background-image: image-url("pict/bg-appBanner-pict.jpg");
     background-position: center;
     background-size: cover;
     height: 400px;
@@ -69,7 +69,7 @@
               margin-bottom: 30px;
             }
             .icon {
-              background-image: url(logo/logo-white.png);
+              background-image: image-url("logo/logo-white.png");
               background-repeat: no-repeat;
               background-size: contain;
               background-position: center center;
