@@ -46,16 +46,14 @@ ActiveRecord::Schema.define(version: 2020_03_05_122602) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "first_name_kana", null: false
-    t.string "last_name_kana", null: false
+    t.string "nickname", default: "", null: false
+    t.string "name", default: "", null: false
+    t.string "name_kana", default: "", null: false
     t.string "sex", null: false
-    t.string "tel", null: false
-    t.string "email", null: false
-    t.string "password", null: false
-    t.string "encrypted_password", null: false
+    t.string "tel", default: "", null: false
+    t.string "email", default: "", null: false
+    t.string "password", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
