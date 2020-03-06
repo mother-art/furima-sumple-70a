@@ -19,5 +19,4 @@ class ApplicationController < ActionController::Base
       username == Rails.application.credentials[:basic_auth][:user] && password == Rails.application.credentials[:basic_auth][:pass]
     end
   end
-  
 end
