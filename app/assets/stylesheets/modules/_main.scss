@@ -117,7 +117,7 @@
         }
         &__image5 {
           @include work-box-inner-image2();
-          background-image: image-url(i"cons/icon-03.png");
+          background-image: image-url("icons/icon-03.png");
         }
         &__image6 {
           @include work-box-inner-image2();
