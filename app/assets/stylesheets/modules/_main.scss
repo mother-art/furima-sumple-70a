@@ -5,7 +5,7 @@
     width: 100%;
     height: 560px;
     padding: 0 60px;
-    background-image: url(pict/bg-mainVisual-pict_pc.jpg);
+    background-image: image-url("pict/bg-mainVisual-pict_pc.jpg");
     background-size: cover;
     background-position:center;
     display: flex;
@@ -66,7 +66,7 @@
         margin: 0 15px;
         &__image1 {
           @include work-box-inner-image();
-          background-image: url(pict/pict-reason-01.jpg);
+          background-image: image-url("pict/pict-reason-01.jpg");
           &__number {
             @include work-box-inner-image-number();
             @include display-center();
@@ -74,7 +74,7 @@
         }
         &__image2 {
           @include work-box-inner-image();
-          background-image: url(pict/pict-reason-02.jpg);
+          background-image: image-url("pict/pict-reason-02.jpg");
           &__number {
             @include work-box-inner-image-number();
             @include display-center();
@@ -82,7 +82,7 @@
         }
         &__image3 {
           @include work-box-inner-image();
-          background-image: url(pict/pict-reason-03.jpg);
+          background-image: image-url("pict/pict-reason-03.jpg");
           &__number {
             @include work-box-inner-image-number();
             @include display-center();
@@ -113,15 +113,15 @@
         margin: 0 20px;
         &__image4 {
           @include work-box-inner-image2();
-          background-image: url(icons/icon-01.png);
+          background-image: image-url("icons/icon-01.png");
         }
         &__image5 {
           @include work-box-inner-image2();
-          background-image: url(icons/icon-03.png);
+          background-image: image-url(i"cons/icon-03.png");
         }
         &__image6 {
           @include work-box-inner-image2();
-          background-image: url(icons/icon-04.png);
+          background-image: image-url("icons/icon-04.png");
         }
         &__text {
           @include default-text-style();
@@ -147,7 +147,7 @@
   }
   .secondview {
     height: 400px;
-    background-image: url(pict/bg-topMiddleDl-pict.jpg);
+    background-image: image-url("pict/bg-topMiddleDl-pict.jpg");
     background-size: cover;
     background-position:center;
     display: flex;
@@ -206,15 +206,15 @@
         width: 350px;
         .pickup__item__image {
           @include work-box-inner-image3();
-          background-image: url(items/item1);
+          background-image: image-url("items/item1");
         }
         .pickup__item__image2 {
           @include work-box-inner-image3();
-          background-image: url(items/item2);
+          background-image: image-url("items/item2");
         }
         .pickup__item__image3 {
           @include work-box-inner-image3();
-          background-image: url(items/item3);
+          background-image: image-url("items/item3");
         }
         .pickup__item__info {
           height: 100px;
