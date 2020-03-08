@@ -12,33 +12,37 @@
       %button#google-login.btn-default.btn-sns.btn-sns-google
         %i.fab.fa-google
         Googleでログイン
-    %form{:action => "", :method => "POST", :novalidate => "novalidate"}
+    %form{action: "", method: "POST", novalidate: "novalidate"}
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field
-        
         %br/
         = f.email_field :email, autofocus: true, placeholder: "メールアドレス",autocomplete: "email"
       .field
-        
         %br/
         = f.password_field :password, placeholder: "パスワード", autocomplete: "current-password"
-      - if devise_mapping.rememberable?
-        .field
-          = f.check_box :remember_me
+      -# - if devise_mapping.rememberable?
+      -#   .field-check
+      -#     = f.check_box :remember_me
           
       .actions
         = f.submit "ログイン"
-        
-    = render "devise/shared/links"
+    .no-acount    
+      = render "devise/shared/links"
+
+.login-footer
+  .login-footer__panel
     %nav
-      %ul.clearfix
+      %ul.contents
         %li
-          %a{:href => ""} プライバシーポリシー
+          = link_to "#" do
+            プライバシーポリシー
         %li
-          %a{:href => ""} フリマ利用規約
+          = link_to "#" do
+            フリマ利用規約
         %li
-          %a{:href => ""} 特定商取引に関する表記
-    %a{:href => ""}
-      %img{:src => ""}/
+          = link_to "#" do
+            特定商取引に関する表記
+    = link_to "#" do
+      %img{src: "/logo-white.png"}
 
 

@@ -38,21 +38,21 @@
       %span.login-header-registration__form--must 必須
       %br/
       .form-group-double
-        = f.text_field :name, placeholder: '例）野比',class: 'input-default-half',required: true
-        = f.text_field :name, placeholder: '例) のび太',class: 'input-default-half',required: true
+        = f.text_field :nickname, placeholder: '例）野比',class: 'input-default-half',required: true
+        = f.text_field :nickname, placeholder: '例) のび太',class: 'input-default-half',required: true
     .form-group 
       = f.label 'お名前カナ(全角)' ,class: 'login-header-registration__label' 
       %span.login-header-registration__form--must 必須
       %br/
       .form-group-double
-        = f.text_field :name, placeholder: '例）ノビ',class: 'input-default-half',required: true
-        = f.text_field :name, placeholder: '例) ノビタ',class: 'input-default-half',required: true
+        = f.text_field :nickname, placeholder: '例）ノビ',class: 'input-default-half',required: true
+        = f.text_field :nickname, placeholder: '例) ノビタ',class: 'input-default-half',required: true
    
     .form-group
       = f.label :tel,'電話番号'
       %span.login-header-registration__form--must 必須
       %br/
-      = f.text_field :name, required: true
+      = f.text_field :nickname, required: true
     %p.userloginform-into
       ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
