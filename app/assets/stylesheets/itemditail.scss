@@ -8,12 +8,12 @@
       width:700px;
       padding:24px 40px 0px;
       .itembox{
-        .itembox__name{
+        &__name{
           font-size: 24px;
           font-weight: bold;
           text-align: center;
         }
-        .itembox__imagebox{
+        &__imagebox{
           margin: 16px 0 0;
           .imagebig{
             position: relative;
@@ -43,7 +43,7 @@
             font-weight: bold;
             margin: 0 10px 0 0;
           }
-          .itembox__price-ditail{
+          &__price-ditail{
             font-size: 16px;
           }
         }
