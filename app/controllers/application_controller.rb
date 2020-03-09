@@ -6,12 +6,12 @@ class ApplicationController < ActionController::Base
   
   protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:first_name,:last_name,:first_name_kana,:last_name_kana,:sex,:tel,:email])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:first_name,:last_name,:first_name_kana,:last_name_kana,:sex,:tel,:email,:birth])
   end
   
   private
   def user_params
-    params.require(:user).permit(:nickname,:first_name,:last_name,:first_name_kana,:last_name_kana,:sex,:tel,:email,:password).merge(user_id: current_user.id)
+    params.require(:user).permit(:nickname,:first_name,:last_name,:first_name_kana,:last_name_kana,:sex,:tel,:email,:password,:birth).merge(user_id: current_user.id)
   end
   
   def production?
