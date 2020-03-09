@@ -1,0 +1,96 @@
+
+.login-registration {
+  background-color: rgb(29, 197, 226); 
+  width: 520px; 
+  margin: 0 auto;
+&__index   {
+    font-size:30px;
+    color: #fff;
+    padding: 40px ;
+    border-bottom: 2px solid #fff;
+    text-align:center;
+  }
+  &__label {
+    display: inline-block;
+    font-weight: 800;
+    margin: 8px 0 3px 0;
+  }
+  &__form {
+
+    &__content{
+      max-width: 390px;
+      width: 80%;
+      margin: 0 auto;
+    }
+    .form-group{
+      .format-input-half{
+       margin-top: 10px;
+       width: 50%;
+       height: 35px;
+       background-color: #fff;
+       border: 1px solid #dddddd;
+      }
+      .format-input{
+        margin: 8px 0 0 0;
+        width: 310px;
+        height: 25px;
+        padding: 10px 0 10px 8px;
+        border: 1px solid rgb(132, 126, 223);
+        font-size: 16px;
+        border-radius: 8px;
+      }
+      
+      .form-group-double{
+        display: flex;
+        
+        .format-input-half{
+          padding-right: 10px;
+          width: 50%;
+          margin:0 5px 0 5px ;
+          height: 30px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+        }    
+      }
+    }
+    padding: 40px;
+    border-bottom: 2px solid #f5f5f5;
+    margin: 0 auto;
+    .userloginform-into__sub-head{
+      font-size: 18px;
+      margin: 8px 0 8px 0;
+      
+     &__text{
+      margin: 8px 0 8px 0;
+      line-height: 22px;
+      padding: 0;
+      width: 100%;
+     }
+    }
+    .userloginform-into{
+      line-height: 22px;
+      color: #888888;
+      display: block;
+      margin: 10px 0 10px 0;
+      text-align: center;
+    }
+    &--must {
+      color: #fff;
+      background-color: #ea352d;
+      margin-left: 8px;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    &--option {
+      color: #fff;
+      background-color: grey;
+      margin-left: 8px;
+      padding: 2px 4px;
+      border-radius: 3px;
+  }
+}
+}
