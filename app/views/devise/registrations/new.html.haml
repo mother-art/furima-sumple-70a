@@ -1,70 +1,105 @@
+.login-page-login
+  .login-registration 
+    .login-registration__index 
+      %b     
+        会員情報入力
+    .login-registration__form 
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .login-registration__form__content
+          .form-group
+            = f.label 'ニックネーム',class:'login-registration__label'
+            %span.login-registration__form--must 必須
+            %br
+            = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: "例)ハマる君",class: 'format-input',required: true
+          .form-group 
+            = f.label 'メールアドレス',class: 'login-registration__label'
+            %span.login-registration__form--must 必須
+            %br/
+            = f.email_field :email, placeholder: 'PC・携帯どちらでも可',class: 'format-input',required: true
+          .form-group
+            = f.label 'パスワード' ,class: 'login-registration__label'
+            %span.login-registration__form--must 必須
+            %br/
+            = f.password_field :password, placeholder: '7文字以上',class: 'format-input',required: true
+          .form-group 
+            = f.label 'パスワード確認', class: 'login-registration__label' 
+            %span.login-registration__form--must 必須
+            %br/
+            = f.password_field :encrypted_password, placeholder: '7文字以上',class: 'format-input',required: true
+          %p.userloginform-into__sub-head
+            %b
+              本人確認
+            .userloginform-into__sub-head__text
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません
+          .form-group 
+            = f.label 'お名前(全角)' ,class: 'login-registration__label' 
+            %span.login-registration__form--must 必須
+            %br/
+            .form-group-double
+              = f.text_field :first_name, placeholder: '例）野比',class: 'format-input-half',required: true
+              = f.text_field :last_name, placeholder: '例) のび太',class: 'format-input-half',required: true
+          .form-group 
+            = f.label 'お名前カナ(全角)' ,class: 'login-registration__label' 
+            %span.login-registration__form--must 必須
+            %br/
+            .form-group-double
+              = f.text_field :first_name_kana, placeholder: '例）ノビ',class: 'format-input-half',required: true
+              = f.text_field :last_name_kana, placeholder: '例) ノビタ',class: 'format-input-half',required: true
+        
+          .form-group
+            = f.label :tel,'電話番号',class: 'login-registration__label' 
+            %span.login-registration__form--must 必須
+            %br/
+            = f.text_field :tel, placeholder: '自宅・携帯どちらでも可', class:'format-input',required: true
+          
+          .form-group 
+          = f.label '生年月日',class: 'login-registration__label' 
+          %span.login-registration__form--must 必須
+          %br/
+          .form-group__select-box 
+            = raw sprintf(f.date_select(:nickname,use_two_digit_numbers: true,start_year: 1930,end_year: (Time.now.year - 18),default: { year: 1980, month: 1, day: 1 },date_separator: '%s'),'年 ', '月 ',) + '日' 
 
-.login-header-registration 
-  .login-header-registration__index 
-    %b
-      会員情報入力
-  .login-header-registration__form  
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .login-header-registration__form-content
-    .form-group
-      = f.label 'ニックネーム',class:'login-header-registration__label'
-      = f.label 'メールアドレス',class: 'login-header-registration__label'
-      %span.login-header-registration__form--must 必須
-      %br
-      = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: "例)メルカリ太郎"
-    .form-group 
-      = f.label 'メールアドレス',class: 'login-header-registration__label'
-      %span.login-header-registration__form--must 必須
-      %br/
-      = f.email_field :email, placeholder: 'PC・携帯どちらでも可',class: 'input-default',required: true
-    .form-group
-      = f.label 'パスワード' ,class: 'login-header-registration__label'
-      %span.login-header-registration__form--must 必須
-      %br/
-      = f.password_field :password, placeholder: '7文字以上',class: 'input-default',required: true
-    .form-group 
-      = f.label 'パスワード確認', class: 'login-header-registration__label' 
-      %span.login-header-registration__form--must 必須
-      %br/
-      = f.password_field :encrypted_password, placeholder: '7文字以上',class: 'input-default',required: true
-    %p.userloginform-into__sub-head
-      %b
-        本人確認
-      .userloginform-into__sub-head__text
-      安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません
-    .form-group 
-      = f.label 'お名前(全角)' ,class: 'login-header-registration__label' 
-      %span.login-header-registration__form--must 必須
-      %br/
-      .form-group-double
-        = f.text_field :name, placeholder: '例）野比',class: 'input-default-half',required: true
-        = f.text_field :name, placeholder: '例) のび太',class: 'input-default-half',required: true
-    .form-group 
-      = f.label 'お名前カナ(全角)' ,class: 'login-header-registration__label' 
-      %span.login-header-registration__form--must 必須
-      %br/
-      .form-group-double
-        = f.text_field :name, placeholder: '例）ノビ',class: 'input-default-half',required: true
-        = f.text_field :name, placeholder: '例) ノビタ',class: 'input-default-half',required: true
-   
-    .form-group
-      = f.label :tel,'電話番号'
-      %span.login-header-registration__form--must 必須
-      %br/
-      = f.text_field :name, required: true
-    %p.userloginform-into
-      ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-
-    .form-group
-      =f.label :sex,'性別'
-      .field-input
-        = f.radio_button :sex, "men"
-        男
-      .field-input
-        = f.radio_button :sex, "female"
-        女
-  
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+          .form-group
+            =f.label :sex,'性別',class: 'login-registration__label' 
+            %span.login-registration__form--must 必須
+            .field-input
+              = f.radio_button :sex, "men"
+              男性
+            .field-input
+              = f.radio_button :sex, "female"
+              女性
+        
+          .form-group 
+            = f.label '郵便番号' ,class: 'login-registration__label' 
+            %span.login-registration__form--must 必須
+            %br/
+            = f.text_field :nickname, placeholder: '例）123456',required: true,class: 'format-input'
+          .form-group 
+            = f.label '都道府県', class: 'login-registration__label' 
+            %span.login-registration__form--must 必須
+            %br/
+            = f.text_field :nickname, placeholder: '例）大阪府',required: true,class: 'format-input'
+          .form-group 
+            = f.label '市区町村', class: 'login-registration__label'
+            %span.login-registration__form--must 必須
+            %br/
+            = f.text_field :nickname, placeholder: '例）大阪市',required: true,class: 'format-input'
+          .form-group 
+            = f.label '番地', class: 'login-registration__label'
+            %span.login-registration__form--must 必須
+            %br/
+            = f.text_field :nickname, placeholder: '例）のぞみ野1−1−1',required: true,class: 'format-input'
+          .form-group   
+            = f.label '建物', class: 'login-registration__label'
+            %span.login-registration__form--option 任意
+            %br/
+            = f.text_field :nickname, placeholder: '例）skyビル10-3',class: 'format-input'
+        
+            %p.userloginform-into
+              ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .actions
+          = f.submit "Sign up"
+      = render "devise/shared/links"
+     
+        
