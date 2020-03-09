@@ -90,16 +90,23 @@
     @include default-text-style();
     margin-left: auto;
     display: flex;
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      line-height: 32px;
+      color: black;
+    }
+    &__logout {
+      margin-right: 16px;
+      &__btn {
+      }
+      line-height: 40px;
+      padding: 0, 0, 16px;
+    }
     &__login {
       line-height: 40px;
       padding: 0, 0, 16px;
-      a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        line-height: 32px;
-        color: black;
-      }
     }
     &__new {
       line-height: 40px;
