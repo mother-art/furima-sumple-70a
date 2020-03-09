@@ -144,8 +144,16 @@
             ★0
           .pickup__item__info__tax
             %p (税込)
-.exhibition-btn
-  = link_to new_product_path do
-    .exhibition-btn--link
-      %p 出品する
-      %i{class: "fas fa-gift"}
+
+- if user_signed_in?
+  .exhibition-btn
+    = link_to new_product_path do
+      .exhibition-btn--link
+        %p 出品する
+        %i{class: "fas fa-gift"}
+- else
+  .exhibition-btn
+    = link_to new_user_session_path do
+      .exhibition-btn--link
+        %p ログインして
+        %p 出品
