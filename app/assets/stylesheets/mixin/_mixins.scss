@@ -61,3 +61,25 @@
   width: 205px;
   height: 60px;
 }
+
+@mixin Hissu-style {
+  height: 20px;
+  width: 45px;
+  margin: 15px 0 15px 10px;
+  background-color: red;
+  border-radius: 5px;
+  color: white;
+  font-size: 12px;
+  @include display-center();
+}
+
+@mixin input-border-style {
+  border-radius: 10px;
+  border: solid 1px $default-color;
+}
+
+@mixin select-style {
+  @include input-border-style();
+  height: 30px;
+  margin-bottom: 60px;
+}
