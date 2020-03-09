@@ -104,7 +104,7 @@
         }
       }
       .exhibition-input__delivery {
-        height: 500px;
+        height: 600px;
         border-bottom: $exhibition-border-bottom-style;
         display: flex;
         flex-direction: column;
@@ -124,6 +124,9 @@
           p {
             @include Hissu-style();
           }
+        }
+        #product_ship_method {
+          @include select-style();
         }
         #product_postage_cost {
           @include select-style();
