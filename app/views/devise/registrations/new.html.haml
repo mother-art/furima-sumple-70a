@@ -58,7 +58,7 @@
           %span.login-registration__form--must 必須
           %br/
           .form-group__select-box 
-            = raw sprintf(f.date_select(:nickname,use_two_digit_numbers: true,start_year: 1930,end_year: (Time.now.year - 18),default: { year: 1980, month: 1, day: 1 },date_separator: '%s'),'年 ', '月 ',) + '日' 
+            = raw sprintf(f.date_select(:birth,use_two_digit_numbers: true,start_year: 1930,end_year: (Time.now.year - 18),default: { year: 1980, month: 1, day: 1 },date_separator: '%s'),'年 ', '月 ',) + '日' 
 
           .form-group
             =f.label :sex,'性別',class: 'login-registration__label' 
