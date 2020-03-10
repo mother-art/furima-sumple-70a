@@ -11,7 +11,7 @@
           .button_box
             =link_to "/products/#{@product.id}/edit" do
               %i{class:'fas fa-edit'}
-            =link_to "/products/#{@product.id}/delete" , method: :delete do
+            =link_to "/products/#{@product.id}", method: :delete, method: :delete  do
               %i{class:'fas fa-trash-alt'}
         - else 
           .button_box
@@ -89,6 +89,11 @@
             =link_to "#" do
               %i{class: "fa fa-star"}
               お気に入り 0
+        %ul
+          %li.buybuy
+            =link_to "#" do
+              %i{class: "buy-link"}
+              出品する
         %ul
           %li.hata
             =link_to "#" do
