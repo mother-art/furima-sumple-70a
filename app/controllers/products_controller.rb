@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:edit]
   def index
-    
+      @products = Product.includes(:user).page(params[:page]).per(20).order("created_at DESC")
   end
   def show
     @product = Product.find(params[:id])
