@@ -1,0 +1,70 @@
+= render 'posts/header'
+
+.exhibition-page
+  .exhibition-input
+    = form_for(@product) do |f|
+      .exhibition-input__image
+        .exhibition-input__image__text
+          %strong 出品画像
+          %p 必須
+        %p 最大10枚までアップロードできます
+        = f.label :image, class: 'image-label' do
+          = icon('fas','camera-retro', class: 'icon')
+          = f.file_field :image, class: 'image-label__file'
+      .exhibition-input__name-detail
+        .exhibition-input__name-detail__text
+          %strong 商品名
+          %p 必須
+        = f.text_field :item_name, class: "exhibition-input__name-detail__name", placeholder: " 商品名を入力"
+        .exhibition-input__name-detail__text
+          %strong 商品の説明
+          %p 必須
+        = f.text_area :detail, class: "exhibition-input__name-detail__detail", placeholder: " 商品の説明を記入"
+      .exhibition-input__info
+        .exhibition-input__info__title
+          商品の詳細
+        .exhibition-input__info__text
+          %strong カテゴリー
+          %p 必須
+        = f.select :category, [["選択してください", ""], ["レディース", "レディース"], ["メンズ", "メンズ"], ["その他", "その他"]]
+        .exhibition-input__info__text
+          %strong ブランド
+          %span 任意
+        = f.text_field :item_name, class: "exhibition-input__info__brand", placeholder: " 例) ユニクロ"
+        .exhibition-input__info__text
+          %strong 商品の状態
+          %p 必須
+        = f.select :item_status, [["選択してください", ""], ["新品・未開封", "新品・未開封"], ["ほとんど未使用", "ほとんど未使用"], ["目立った傷、汚れ無し", "目立った傷、汚れ無し"], ["少し傷と汚れあり", "少し傷と汚れあり"], ["傷と汚れあり", "傷と汚れあり"], ["ボロボロ", "ボロボロ"]]
+      .exhibition-input__delivery
+        .exhibition-input__delivery__title
+          配送について
+        .exhibition-input__delivery__text
+          %strong 配送方法
+          %p 必須
+        = f.select :ship_method, [["選択してください", ""], ["佐川急便", "佐川急便"], ["クロネコヤマト", "クロネコヤマト"]]
+        .exhibition-input__delivery__text
+          %strong 配送料の負担
+          %p 必須
+        = f.select :postage_cost, [["選択してください", ""], ["出品者負担", "送料込み"], ["購入者負担", "着払い"]]
+        .exhibition-input__delivery__text
+          %strong 発送元の地域
+          %p 必須
+        = f.select :ship_area, [["選択してください", ""], ["関西", "関西"], ["関東", "関東"], ["それ以外", "それ以外"]]
+        .exhibition-input__delivery__text
+          %strong 発送までの日数
+          %p 必須
+        = f.select :ship_date, [["選択してください", ""], ["1日~2日","1日~2日"], ["3日~4日", "3日~4日"], ["1週間", "1週間"]]
+      .exhibition-input__price
+        .exhibition-input__price__text
+          %strong 販売価格
+          %p 必須
+        = f.number_field :price, placeholder: " ¥300 ~ ¥9,999,999"
+        %i 販売手数料（10%）
+      
+      .exhibition-input__last
+        = f.submit "編集して出品", class: "exhibition-input__last__submit"
+        = link_to root_path do
+          .exhibition-input__last__return 戻る
+        .exhibition-input__last__note
+          %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪です。
+          %p また、出品をもちまして加盟店規約に同意したことになります。
