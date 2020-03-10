@@ -13,14 +13,51 @@
               %button{type: "submit"}
                 .searchbox__icon
                   =image_tag "/icon-search 1.png", class: 'search-img'
-        %ul.resultLists
       .nav
         %ul.leftlist
           %li.leftlist__category
-            #catbtn
             カテゴリー
+            %ul.categoryTree
+              %li.categoryTree__item
+                = link_to "#" do
+                  レディース
+              %li.categoryTree__item
+                = link_to "#" do
+                  メンズ
+              %li.categoryTree__item
+                = link_to "#" do
+                  ベビー・キッズ
+              %li.categoryTree__item
+                = link_to "#" do
+                  インテリア・住まい・小物
+              %li.categoryTree__item
+                = link_to "#" do
+                  本・音楽・ゲーム
+              %li.categoryTree__item
+                = link_to "#" do
+                  おもちゃ・ホビー・グッズ
+              %li.categoryTree__item
+                = link_to "#" do
+                  コスメ・香水・美容
+              %li.categoryTree__item
+                = link_to "#" do
+                  家電・スマホ・カメラ
+              %li.categoryTree__item
+                = link_to "#" do
+                  スポーツ・レジャー
+              %li.categoryTree__item
+                = link_to "#" do
+                  ハンドメイド
+              %li.categoryTree__item
+                = link_to "#" do
+                  チケット
+              %li.categoryTree__item
+                = link_to "#" do
+                  自動車・オートバイ
+              %li.categoryTree__item
+                = link_to "#" do
+                  その他
           %li.leftlist__brand
-            #brandbtn
             ブランド
             %ul.brand
         %ul.rightlist
@@ -34,4 +71,3 @@
             %li.rightlist__new
               = link_to new_user_registration_path do
                 新規会員登録
-          
