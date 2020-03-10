@@ -32,9 +32,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def destroy
-    product = Product.find(params[:id])
-    product.destroy
+  def destroy 
   end
 
   private
