@@ -11,7 +11,7 @@
     border: solid 2px $default-color;
     border-radius: 10px;
     background-color: rgb(123, 197, 195);
-    .new_product {
+    .new_product, .edit_product{
       .exhibition-input__image {
         height: 250px;
         border-bottom: $exhibition-border-bottom-style;

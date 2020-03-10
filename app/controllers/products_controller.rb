@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-
+  before_action :set_product, only: [:edit]
   def index
   end
 
@@ -24,9 +24,15 @@ class ProductsController < ApplicationController
   end
 
   def update
+    product = Product.find(params[:id])
+    if product.update(product_params)
+
+    else
+      render :edit
+    end
   end
 
-  def destroy
+  def destroy 
   end
 
   private
@@ -34,4 +40,7 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:item_name, :detail, :category, :price, :item_status, :postage_cost, :ship_area, :ship_method, :ship_date).merge(user_id: current_user.id)
   end
 
+  def set_product
+    @product = Product.find(params[:id]) 
+  end
 end

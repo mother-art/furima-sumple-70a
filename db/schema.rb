@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_080829) do
     t.string "category"
     t.integer "price", null: false
     t.string "item_status", null: false
-    t.integer "postage_cost", null: false
+    t.string "postage_cost", null: false
     t.string "ship_area", null: false
     t.string "ship_method", null: false
     t.string "ship_date", null: false
