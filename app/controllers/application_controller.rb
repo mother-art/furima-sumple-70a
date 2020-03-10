@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
-  
+  def index
+    @tweets = Tweet.includes(:user).page(params[:page]).per(20).order("created_at DESC")
+  end
    
   protected
   def configure_permitted_parameters
