@@ -13,6 +13,15 @@
           font-weight: bold;
           text-align: center;
         }
+        .button_box{
+          display: flex;
+          justify-content:flex-end;
+          a{
+            text-decoration: none;
+            color:#333;
+            padding-left: 8px;
+          }
+        }
         &__imagebox{
           margin: 16px 0 0;
           .imagebig{
@@ -163,9 +172,10 @@
     }
   }
   .relatedItem{
-    margin-left: 320px;
+    margin-left:560px;
     font-size: 24px;
     font-weight: bold;
+    
     a{
       text-decoration: none;
       color: #3CCACE;         
@@ -173,8 +183,3 @@
   }
 }
     
-.footer{
-  height: 400px;
-  width: 100vw;
-  background-color: #333;
-}

@@ -1,1 +1,120 @@
-dddd
+= render'posts/header'
+
+-# 部分テンプレート
+.wrapper
+  .topContents
+    .contents
+      .itembox
+        %h1.itembox__name 
+          =@product.user_id
+        - if user_signed_in?
+          .button_box
+            =link_to "/products/#{@product.id}/edit" do
+              %i{class:'fas fa-edit'}
+            =link_to "/products/#{@product.id}/delete" , method: :delete do
+              %i{class:'fas fa-trash-alt'}
+        - else 
+          .button_box
+        .itembox__imagebox
+          %ul.imagebig
+            %li#bigimage
+              -# =image_tag ’’
+              .img
+            %ul.imagesmale
+              %li#smaleimage
+                -# =image_tag ’’
+                .img
+              %li
+                -# =image_tag ’’
+                .img
+              %li
+                -# =image_tag ’’ 
+                .img
+        .itembox__price
+          %span.plice 
+            %span¥
+            = @product.price
+          .itembox__price-ditail
+          %span (税込)
+          %span 送料込み
+      .itembox__Dtail
+        %span 
+          = @product.detail
+      .itemtable
+        %table
+          %tb
+            %tr
+              %th 出品者
+              %td 
+                =@product.user_id
+
+            %tr
+              %th カテゴリー
+              %td
+                %ul
+                  %li
+                    =link_to "#" do
+                      =@product.category
+                  %li
+                    =link_to "#" do
+                      =@product.category
+                  %li
+                    =link_to "#" do
+                      =@product.category
+            %tr
+              %th  ブランド
+              %td
+                
+            %tr
+              %th  商品のサイズ
+              %td
+            %tr
+              %th  商品の状態
+              %td  
+                =@product.item_status
+            %tr
+              %th  発送料の負担
+              %td  送料込み（出品者負担）
+            %tr
+              %th  発送元の地域
+              %td
+                =@product.ship_area
+            %tr
+              %th  発送日の目安
+              %td
+                =@product.ship_date
+      .optionArea
+        %ul
+          %li.okini
+            =link_to "#" do
+              %i{class: "fa fa-star"}
+              お気に入り 0
+        %ul
+          %li.hata
+            =link_to "#" do
+              %i{class: "fa fa-flag"}
+              不適切な商品の通報
+      -# コメントフォーム
+      .item-coments
+        = form_for '#' do |f|
+          = f.text_area :body
+          %p 相手のことを考え丁寧なコメントを心がけましょう。 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %button{name:"button", type:"submit",class:"commentBtn"}
+            %i{class:"fa fa-comment"}
+            コメントする
+  .topform
+    .befor
+      =link_to '#' do
+        %i{class: "fas fa-angle-left"}
+        前のページ
+    .befor
+      =link_to product_path(@product.id.next) do
+        次のページ
+        %i{class: "fas fa-angle-right"}
+  .relatedItem
+    =link_to "#" do
+      =@product.category
+      %span をもっと見る
+
+
+= render 'posts/footer'
