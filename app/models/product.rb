@@ -4,7 +4,7 @@ class Product < ApplicationRecord
     has_many :comments
     # has_many :images
     #画像機能
-    belongs_to user, foreign_key: 'user_id'
+    belongs_to :user
     belongs_to :main_tag
     has_many :item_images
     accepts_nested_attributes_for :item_images, allow_destroy: true

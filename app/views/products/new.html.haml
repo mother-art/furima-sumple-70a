@@ -20,15 +20,6 @@
                   = icon('fas','camera-retro', class: 'icon')
                   = i.file_field :src, class: 'js-file'
                   1枚目
-
-          -# = f.label :image, class: 'image-label' do
-          -#   = icon('fas','camera-retro', class: 'icon')
-          -#   = f.file_field :image, class: 'image-label__file'
-
-          -# - if @product.persisted?
-          -#   .js-file_group{data_index: @product.item_images.count}
-          -#     = file_field_tag :src, name: "product[item_images_attributes][#{@product.item_images.count}][src]", class: 'js-file'
-          -#     .js-remove 削除
       .exhibition-input__name-detail
         .exhibition-input__name-detail__text
           %strong 商品名
