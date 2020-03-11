@@ -9,9 +9,9 @@
           =@product.user_id
         - if user_signed_in?
           .button_box
-            =link_to "/products/#{@product.id}/edit" do
+            =link_to edit_product_path(@product.id) do
               %i{class:'fas fa-edit'}
-            =link_to "/products/#{@product.id}", method: :delete, method: :delete  do
+            =link_to product_path(@product.id),method: :delete  do
               %i{class:'fas fa-trash-alt'}
         - else 
           .button_box

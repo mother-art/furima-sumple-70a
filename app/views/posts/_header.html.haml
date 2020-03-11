@@ -22,6 +22,9 @@
           %li.leftlist__brand
             #brandbtn
             ブランド
+          %li.leftlist__category
+            =link_to products_path do
+              商品一覧
             %ul.brand
         %ul.rightlist
           - if user_signed_in?
@@ -34,4 +37,3 @@
             %li.rightlist__new
               = link_to new_user_registration_path do
                 新規会員登録
-          
