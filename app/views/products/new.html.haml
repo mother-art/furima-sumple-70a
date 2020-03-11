@@ -2,15 +2,33 @@
 
 .exhibition-page
   .exhibition-input
-    = form_for(@product) do |f|
+    = form_for @product do |f|
       .exhibition-input__image
         .exhibition-input__image__text
           %strong 出品画像
           %p 必須
-        %p 最大10枚までアップロードできます
-        = f.label :image, class: 'image-label' do
-          = icon('fas','camera-retro', class: 'icon')
-          = f.file_field :image, class: 'image-label__file'
+        %p 最大5枚までアップロードできます
+        #image-box
+          .previews
+            - if @product.persisted?
+              - @product.item_images.each_with_index do |item_image, i|
+                = image_tag item_image.src.url, data: { index: i }, size: "100×100"
+          .input-btn
+            = f.fields_for :item_images do |i|
+              = i.label :src, class: 'image-label' do
+                %div{data: {index: (i.index)}, class: "js-file_group"}
+                  = icon('fas','camera-retro', class: 'icon')
+                  = i.file_field :src, class: 'js-file'
+                  1枚目
+
+          -# = f.label :image, class: 'image-label' do
+          -#   = icon('fas','camera-retro', class: 'icon')
+          -#   = f.file_field :image, class: 'image-label__file'
+
+          -# - if @product.persisted?
+          -#   .js-file_group{data_index: @product.item_images.count}
+          -#     = file_field_tag :src, name: "product[item_images_attributes][#{@product.item_images.count}][src]", class: 'js-file'
+          -#     .js-remove 削除
       .exhibition-input__name-detail
         .exhibition-input__name-detail__text
           %strong 商品名

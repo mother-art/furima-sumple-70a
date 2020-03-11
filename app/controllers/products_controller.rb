@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
 
 
 
+  before_action :set_product, except: [:index, :new, :create]
+  
   def index
       @products = Product.includes(:user).page(params[:page]).per(20).order("created_at DESC")
   end
@@ -12,7 +14,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-
+    @product.item_images.new
   end
 
   def create
@@ -51,10 +53,10 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:item_name, :detail, :category, :price, :item_status, :postage_cost, :ship_area, :ship_method, :ship_date).merge(user_id: current_user.id)
+    params.require(:product).permit(:item_name, :detail, :category, :price, :item_status, :postage_cost, :ship_area, :ship_method, :ship_date, item_images_attributes: [:src]).merge(user_id: current_user.id)
   end
 
   def set_product
-    @product = Product.find(params[:id]) 
+    @product = Product.find(params[:id])
   end
 end
