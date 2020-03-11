@@ -113,13 +113,13 @@
               color: #3CCACE;
             }
           }
-          .buybuy{
+          .buy-link{
             display: inline-block;
             position: relative;
             padding: 0.5em 1.4em;
             background: #668ad8;
             border-bottom: solid 5px #36528c;
-            border-right: solid 5px #5375bd;
+            border-right: solid 5px #5375bd;/*ボタン色より暗めに*/
             a{
               text-decoration: none;
               color:white;
@@ -128,7 +128,7 @@
           .buy-link{
             text-decoration: none;
           }
-          .buybuy:before {  
+          .buy-link:before {  
             content: " ";
             position: absolute;
             bottom: -5px;
@@ -140,7 +140,7 @@
             border-color: transparent;
             border-bottom-color: #FFF;
           }
-          .buybuy:after {  
+          .buy-link:after {  
             content: " ";
             position: absolute;
             top: -1px;
@@ -152,12 +152,12 @@
             border-color: #FFF;
             border-bottom-color: transparent;
           }
-          .buybuy:active {
+          .buy-link:active {
             border:none;
             -webkit-transform: translate(6px,6px);
             transform: translate(6px,6px);
           }
-          .buybuy:active:after, .buybuuy:active:before {
+          .buy-link:active:after, .buybuuy:active:before {
             content: none;
           }
           .hata{
