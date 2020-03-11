@@ -1,19 +1,25 @@
 .exhibition-page {
   display: flex;
   justify-content: center;
-  height: 2150px;
   width: 100%;
   padding-top: 30px;
   .exhibition-input {
     padding: 20px 25px;
-    height: 100%;
     width: 600px;
     border: solid 2px $default-color;
     border-radius: 10px;
     background-color: rgb(123, 197, 195);
     .new_product {
-      .exhibition-input__image {
-        height: 250px;
+      .exhibition-input__image, #image-box{
+        .previews {
+          display: flex;
+          border-radius: 5px;
+          height: 100px;
+          &__image {
+            margin-right: 10px;
+            border-radius: 5px;
+          }
+        }
         border-bottom: $exhibition-border-bottom-style;
         &__text {
           display: flex;
@@ -26,19 +32,28 @@
             @include Hissu-style();
           }
         }
-        .image-label{
-          .icon {
-            height: 130px;
-            margin-top: 15px;
-            background-color: white;
-            border-radius: 10px;
-            border: dashed 1px $default-color;
-            font-size: 30px;
-            cursor: pointer;
-            @include display-center();
-          }
-          &__file {
-            display: none;
+        .input-btn {
+          display: flex;
+          .image-label{
+            #btn-5 {
+              display: none;
+            }
+            .js-file_group {
+              .js-file {
+                display: none;
+              }
+              .icon {
+                height: 60x;
+                width: 98px;
+                margin: 15px 10px 0 0;
+                background-color: white;
+                border-radius: 10px;
+                border: dashed 1px $default-color;
+                font-size: 30px;
+                cursor: pointer;
+                @include display-center();
+              }
+            }
           }
         }
       }
