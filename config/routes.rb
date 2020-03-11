@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   root "posts#index"
   resources :posts
   resources :users
-  resources :products 
+  resources :products do
+    member do
+      get 'buyer'
+    end
+  end
+
   resources :ad
   resources :comments
 end
