@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :products
   resources :ad
   
+  get '/posts/category'
+
 end
