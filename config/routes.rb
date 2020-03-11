@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get '/products/:id/buyer' => 'products#buyer'
+  root 'posts#index'
   resources :posts
   resources :users
   resources :products do
