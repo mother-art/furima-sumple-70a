@@ -1,0 +1,121 @@
+.wrraper{
+  background-color:rgb(239, 243, 245);
+  height: 100%;
+  width: 100vw;
+  overflow: scroll;
+  .header{
+    height: 120px;
+    text-align: center;
+    padding-top: 32px;
+    .img{
+    }
+  }
+  .main{
+    .contents{
+      margin: 0 auto;
+      height:800px;
+      width: 700px;
+      background-color: white;
+      h2{
+        font-size: 24px;
+        font-weight: bold;
+        height: 100px;
+        border-bottom:1px solid rgb(217, 232, 235) ;
+        line-height: 100px;
+        text-align: center;
+      }
+      .item_image{
+        text-align: center;
+        margin-top: 16px;
+        padding-bottom: 16px;
+        border-bottom:1px solid rgb(217, 232, 235) ;
+      }
+      .small_content{
+        width:500px;
+        height: 300px;
+        background-color:white;
+        margin: 0 auto;
+        .pay_price{
+          display: flex;
+          height: 100px;
+          width: 100%;
+          border-bottom:1px solid rgb(217, 232, 235) ;
+          line-height: 100px;
+          p{
+            font-size:18px;
+            padding-right: 60px;
+            margin-left: 110px;
+            font-weight: bold;
+          }
+          span{
+            font-size: 24px;
+            font-weight: bold;
+          }
+        }
+        .pay_way{
+          height: 100px;
+          width: 100%;
+          border-bottom:1px solid rgb(217, 232, 235);
+          padding-top: 30px;
+          p{
+            font-weight: bold;
+            font-size: 14px;
+            padding-bottom: 8px;
+          }
+          .whichway{
+            font-size: 14px;
+            a{
+              color:skyblue;
+            }
+          }
+        }
+        .ship{
+          height: 80px;
+          width: 100%;
+          &__way{
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 10px;
+            p{
+              font-size: 14px;
+              padding-top: 24px;
+              font-weight: bold;
+            }
+            .change{
+              padding-top: 24px;
+              font-size: 14px;
+              a{
+                color: skyblue;
+                text-decoration: none;
+              }
+            }
+          }
+          &__area{
+            font-size: 14px;
+            padding-bottom: 4px;
+            color: rgba(90, 88, 88,0.7);
+          }
+          .user_id{
+            font-size: 14px;
+            padding-bottom: 4px;
+            color: rgba(90, 88, 88,0.7);
+          }
+          &__method{
+            font-size:14px;
+            padding-bottom: 4px;
+            color: rgba(90, 88, 88,0.7);
+          }
+          &__data{
+            font-size:14px;
+            color: rgba(90, 88, 88,0.7);
+          }
+        }
+      }
+    }
+  }
+  .footer{
+    height: 120px;
+    
+  }
+}
+  
