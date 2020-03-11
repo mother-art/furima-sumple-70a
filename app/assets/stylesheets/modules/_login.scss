@@ -1,5 +1,6 @@
 .login-header {
-  background-color: rgb(227, 233, 231);
+  background-color: #fff;
+  border-bottom: 1px solid $default-color;
   height:  128px;
   text-align: center;
   &__icon {
@@ -70,6 +71,7 @@
     margin: 0;
     padding: 32px 64px 0 64px;
     input {
+      cursor: pointer;
       background-color: red;
       position: relative;
       display: block;
@@ -110,26 +112,31 @@
 }
 
 .login-footer {
+  height: 128px;
+  margin: 0;
   padding: 0 0 220px;
   text-align: center;
-  background-color: rgb(227, 233, 231);
+  background-color: rgb(58, 58, 58);
   &__panel {
     width: 456px;
     height: 220px;
     margin: 0 auto;
     .contents {
+      padding-top: 20px;
       text-align: center;
       li {
         display: inline;
         font-size: 12px;
         margin: 0 16px;
         a {
+          color: white;
           font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
           text-decoration: none;
         }
       }
     }
     img {
+      padding-top: 20px;
       width: 185px;
       height: 49px;
     }
