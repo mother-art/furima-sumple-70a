@@ -1,7 +1,7 @@
 = render 'posts/header'
 .products__view
   - @products.each do |product|
-    = link_to root_path,class:"view__box" do
+    = link_to product_path(product.id),class:"view__box" do
       .view__box-hi
         .view__box-hi-price
           %span ¥

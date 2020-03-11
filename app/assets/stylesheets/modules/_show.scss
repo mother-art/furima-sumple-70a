@@ -113,6 +113,53 @@
               color: #3CCACE;
             }
           }
+          .buy-link{
+            display: inline-block;
+            position: relative;
+            padding: 0.5em 1.4em;
+            background: #668ad8;
+            border-bottom: solid 5px #36528c;
+            border-right: solid 5px #5375bd;/*ボタン色より暗めに*/
+            a{
+              text-decoration: none;
+              color:white;
+            }
+          }
+          .buy-link{
+            text-decoration: none;
+          }
+          .buy-link:before {  
+            content: " ";
+            position: absolute;
+            bottom: -5px;
+            left: -1px;
+            width: 0;
+            height: 0;
+            border-width: 0 6px 6px 0px;
+            border-style: solid;
+            border-color: transparent;
+            border-bottom-color: #FFF;
+          }
+          .buy-link:after {  
+            content: " ";
+            position: absolute;
+            top: -1px;
+            right: -5px;
+            width: 0;
+            height: 0;
+            border-width: 0px 6px 6px 0px;
+            border-style: solid;
+            border-color: #FFF;
+            border-bottom-color: transparent;
+          }
+          .buy-link:active {
+            border:none;
+            -webkit-transform: translate(6px,6px);
+            transform: translate(6px,6px);
+          }
+          .buy-link:active:after, .buybuuy:active:before {
+            content: none;
+          }
           .hata{
             font-size: 14px;
             border:1px solid lightslategrey;
