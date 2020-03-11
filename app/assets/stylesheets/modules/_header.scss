@@ -65,21 +65,47 @@
   line-height: 40px;
   
   .leftlist {
-    position: relative;
     display: flex;
+    position: relative;
     @include default-text-style();
     &__category {
       margin: 0 16px;
-      a {
-        background-image: url("#");
-        text-decoration: none;
-        padding-right: 32px;
-        color: black;
+      position: relative;
+      cursor: pointer;
+      z-index: 500;
+      &:hover {
+        background: white;
+        display: block;
+      }
+      .categoryTree {
+        z-index: 2;
+        position: absolute;
+        top: 40px;
+        display: flex;
+        background-color: white;
+        flex-direction: column;
+        position: relative;
+        top: 13px;
+        &__item {
+          vertical-align: baseline;
+          display:inline-block;
+          border-bottom: 1px solid #dad7d7;
+          a {
+            background-image: url("#");
+            text-decoration: none;
+            padding-right: 32px;
+            color: black;
+          }
+        }
       }
     }
     &__brand {
+      float: right;
+      z-index: 1000;
       padding: 0;
+      position: relative;
       a {
+        background-position: center right;
         background-image: url("#");
         text-decoration: none;
         color: black;
