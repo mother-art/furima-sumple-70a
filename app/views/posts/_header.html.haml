@@ -8,11 +8,12 @@
         .searchbox
           %form{"accept-charset": "UTF-8", action: "#", method: "get"}
             %input{name: "utf8", type: "hidden", value: "✓"}/
-            %input#searchinput.searchbox--input{name: "key", placeholder: "キーワードから探す"}/
+            %input#searchinput.searchbox--input{name: "key", id:'keyword',placeholder: "キーワードから探す"}/
             %form.button_to{action: "/?type=submit",method: ""}
-              %button{type: "submit"}
+              %button{id:'submit',type: "submit"}
                 .searchbox__icon
                   =image_tag "/icon-search 1.png", class: 'search-img'
+                  
         %ul.resultLists
       .nav
         %ul.leftlist
@@ -30,6 +31,8 @@
           - if user_signed_in?
             %li.rightlist__logout
               = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'rightlist__logout__btn'
+              = link_to user_path(current_user.id) do
+                .rightlist__logout__btn マイページ
           - else
             %li.rightlist__login
               = link_to new_user_session_path do

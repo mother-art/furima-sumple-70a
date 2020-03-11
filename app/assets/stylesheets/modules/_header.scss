@@ -99,6 +99,10 @@
     }
     &__logout {
       margin-right: 16px;
+      display: flex;
+      a{
+        padding-right: 16px;
+      }
       &__btn {
       }
       line-height: 40px;

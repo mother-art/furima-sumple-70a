@@ -1,6 +1,6 @@
 .body
   .header
-
+  =render 'posts/header'
 
   .wrapper
     .side
@@ -48,3 +48,4 @@
             =link_to "#" do
               %input{type:'submit',value:'Log Out'}
   .footer
+    = render 'posts/footer'
