@@ -111,6 +111,13 @@
         color: black;
       }
     }
+    &__index {
+      margin-left: 15px;
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
   }
   .rightlist {
     @include default-text-style();
