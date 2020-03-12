@@ -1,22 +1,53 @@
 = render 'posts/header'
-
-.c-p
-  .c-page
-    .side_bar
-
-    .cp
-      .cp-pay
+.contents-credit
+  .content
+    .credit
+      .credit-header
         支払い方法
-      .cp-info
-        .cp-chapter
-          クレジットカード一覧
-        .cp-payment-tag
-          .cp-payment-tag-v
-            = image_tag( "logo/visa.png",height:"100%", width:"45px")
-          .cp-payment-num ************4242
-          .cp-payment-num 12 / 20
-          %input{name: "method", type: "hidden", value: "card"}/
-          %button.cp-payment-remove{type: "submit"}
-            削除する
+      .credit-main
+        .credit-detail
+        
+          -@card = Card.find_by(user_id: current_user.id)
+            -unless @card == nil
+            .credit-list
+              クレジットカード一覧
+            .credit-setting
+              %li.card-logo 
+                = image_tag( "logo/visa.png",height:"100%", width:"45px")
+              %li.credit-number
+              = "**** **** **** " + @default_card_information.last4
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              %li.credit-limit
+              = exp_month + " / " + exp_year
+              = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+                %input{ type: "hidden", name: "card_id", value: "",class:"delet-btn" }
+                  %button.delet-btn 削除する
+          -@card = Card.find_by(user_id: current_user.id)
+            -if @card == nil
+            =link_to new_card_path,class: "credit-btn" do
+              クレジットカードを追加する
+        .about
+          支払い方法について
+          %i.fa.fa-angle-right
+ 
+-# .c-p
+-#   .c-page
+-#     .side_bar
+
+-#     .cp
+-#       .cp-pay
+-#         支払い方法
+-#       .cp-info
+-#         .cp-chapter
+-#           クレジットカード一覧
+-#         .cp-payment-tag
+-#           .cp-payment-tag-v
+-#             = image_tag( "logo/visa.png",height:"100%", width:"45px")
+-#           .cp-payment-num ************4242
+-#           .cp-payment-num 12 / 20
+-#           %input{name: "method", type: "hidden", value: "card"}/
+-#           %button.cp-payment-remove{type: "submit"}
+-#             削除する
 
 
