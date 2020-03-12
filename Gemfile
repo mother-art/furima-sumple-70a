@@ -83,4 +83,9 @@ gem 'devise-i18n-views'
 gem 'pry-rails'
 gem 'kaminari'
 gem 'ancestry'
+<<<<<<< HEAD
 gem 'fog-aws'
+=======
+gem 'payjp'
+gem 'dotenv-rails'
+>>>>>>> bddc2466d6005507d48bc9f82e8ad3646c3f3948
