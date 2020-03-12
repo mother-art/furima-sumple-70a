@@ -358,8 +358,8 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   devise-i18n-views
-  fog-aws
   dotenv-rails
+  fog-aws
   font-awesome-sass
   haml-rails
   jbuilder (~> 2.5)
