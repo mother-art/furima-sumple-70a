@@ -8,15 +8,19 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-  root "posts#index"
-  resources :posts
+  root "users#index"
   resources :users
-  resources :products do
-      member do
-        get 'buyer'
-        
+  resources :products, only: [:index, :show, :new, :edit, :destroy, :create] do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+    member do
+      get 'buyer'
     end
   end
+  resources :ad
+  resources :comments
   resources :buyer, only: [:index] do
     collection do
       get 'index', to: 'buyer#index'
@@ -24,15 +28,11 @@ Rails.application.routes.draw do
       get 'done', to: 'buyer#done'
     end
   end
-
-  resources :ad
-  resources :comments
-
   resources :card, only: [:new, :show] do
     collection do
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
     end
-  end
+    end
 end
 

@@ -1,7 +1,4 @@
-.login-header
-  .login-header__icon
-    = image_tag '/logo.png'
-
+= render 'layouts/header'
 .login-main
   .login-panel
     .login-facebook
@@ -26,20 +23,4 @@
     .no-acount    
       = render "devise/shared/links"
 
-.login-footer
-  .login-footer__panel
-    %nav
-      %ul.contents
-        %li
-          = link_to "#" do
-            プライバシーポリシー
-        %li
-          = link_to "#" do
-            フリマ利用規約
-        %li
-          = link_to "#" do
-            特定商取引に関する表記
-    = link_to "#" do
-      = image_tag '/logo-white.png'
-
-
+= render 'layouts/footer'
