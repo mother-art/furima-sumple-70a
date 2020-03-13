@@ -1,23 +1,16 @@
 .body{
-  .header{
-    height: 100px;
-    width: 100vw;
-    background-color: skyblue;
-    overflow: hidden;
-  }
+  background-color: ghostwhite;
   .wrapper{
-    margin-top: 40px;
     display: flex;
     justify-content: space-around;
-    
     .side{
-      height:calc(100vh - 100px);
+      margin-top: 25px;
+      height:calc(100vh - 200px);
       width: 280px;
-      background-color: ghostwhite;
       ul{
         list-style: none;
         font-size: 16px;
-        color: rgb(173, 172, 172);
+        background-color: rgb(240, 240, 255);
         padding-left: 0;
         margin-top: 0;
         li{
@@ -43,39 +36,32 @@
     .main{
       height:calc(100vh - 100px) ;
       width: 700px;
-      background-color: ghostwhite;
-      .plofile{
+      
+      .profile{
         padding: 20px;
-        height: 500px;
+        height: 400px;
         background-color:rgba(221, 220, 220, 0.48);
         background-image: url("/c45e6d8e0587e26ea83ae5b9037e46c96_4620693218539207164_190818_0051.jpg");
         background-size: cover;
         position: relative;
         img{
-          border-radius: 50%;
-          position: absolute;
-          bottom: 210px;
-          left: 290px;
         }
         p{
           font-size: 22px;
           text-align: center;
-          position: absolute;
-          bottom: 25%;
-          left: 320px;
         }
       }
       .content{
         padding-top: 50px;
         padding-bottom: 50px;
         ul{
+          text-decoration: none;
           font-size: 16px;
           li{
             list-style: none;
             a{
               color: rgb(0,0,0);
               font-weight: bold;
-              
               text-decoration: none;
             }
           }
@@ -94,16 +80,9 @@
           }
           input:hover{
             cursor: pointer;
-
           }
         }
       }
     }
-  }
-  .footer{
-    
-    height: 500px;
-    width: 100vw;
-    background-color: lightslategray;
   }
 }
