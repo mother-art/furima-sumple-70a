@@ -25,9 +25,12 @@
                   %button.delet-btn 削除する
           -@card = Card.find_by(user_id: current_user.id)
             -if @card == nil
-            =link_to new_card_path,class: "credit-btn" do
+            =link_to new_card_path, class: "credit-btn" do
               クレジットカードを追加する
         .about
           支払い方法について
           %i.fa.fa-angle-right
+ 
+
+
 
