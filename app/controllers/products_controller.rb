@@ -1,13 +1,11 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:edit]
-
-
-
-  before_action :set_product, except: [:index, :new, :create]
+  # before_action :set_product, only: [:edit]
+  # before_action :set_product, except: [:index, :new, :create]
   
   def index
       @products = Product.includes(:user).page(params[:page]).per(20).order("created_at DESC")
   end
+
   def show
     @product = Product.find(params[:id])
   end
@@ -15,6 +13,18 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.item_images.new
+    @category_parent_array = ["---"]
+    MainTag.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+  end
+
+  def get_category_children
+    @category_children = MainTag.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = MainTag.find("#{params[:child_id]}").children
   end
 
   def create
