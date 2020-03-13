@@ -1,6 +1,4 @@
 class ProductsController < ApplicationController
-  # before_action :set_product, only: [:edit]
-  # before_action :set_product, except: [:index, :new, :create]
   
   def index
       @products = Product.includes(:user).page(params[:page]).per(20).order("created_at DESC")
