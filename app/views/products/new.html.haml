@@ -40,10 +40,6 @@
               .listing-select-wrapper__box
                 = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
         .exhibition-input__info__text
-          %strong ブランド
-          %span 任意
-        = f.text_field :item_name, class: "exhibition-input__info__brand", placeholder: " 例) ユニクロ"
-        .exhibition-input__info__text
           %strong 商品の状態
           %p 必須
         = f.select :item_status, [["選択してください", ""], ["新品・未開封", "新品・未開封"], ["ほとんど未使用", "ほとんど未使用"], ["目立った傷、汚れ無し", "目立った傷、汚れ無し"], ["少し傷と汚れあり", "少し傷と汚れあり"], ["傷と汚れあり", "傷と汚れあり"], ["ボロボロ", "ボロボロ"]]

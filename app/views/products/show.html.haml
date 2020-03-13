@@ -18,7 +18,7 @@
         .itembox__imagebox
           %ul.imagebig
             %li#bigimage
-              -# =image_tag ’’
+              -# =image_tag 
               .img
             %ul.imagesmale
               %li#smaleimage
@@ -47,7 +47,6 @@
               %th 出品者
               %td 
                 =@product.user_id
-
             %tr
               %th カテゴリー
               %td
@@ -93,7 +92,9 @@
           %li.buy-link
             =link_to "#" do
               %i{class: "buy-ss"}
-              出品する
+              購入する
+          :plain
+            <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_a9617ffb242be8ef8b555ea7"></script>
         %ul
           %li.hata
             =link_to "#" do

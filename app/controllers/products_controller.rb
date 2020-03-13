@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   
   def index
-      @products = Product.includes(:user).page(params[:page]).per(20).order("created_at DESC")
+    @products = Product.includes(:user).page(params[:page]).per(20).order("created_at DESC")
   end
 
   def show

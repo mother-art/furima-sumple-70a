@@ -7,8 +7,8 @@ $背景: rgb(191, 219, 224);
     flex-wrap: wrap;
     justify-content: flex-start;
     .view__box{
-      height: 280px;
-      text-decoration: none;
+        height: 260px;
+        text-decoration: none;
         width: 220px;
         background-color: skyblue;
         border: solid 1px gray;
@@ -16,25 +16,30 @@ $背景: rgb(191, 219, 224);
         position:relative;
         border-radius: 10px;
         margin-bottom: 20px;
-                    &:active {
+            &:active {
                 transform: translateY(5px)
             }
             &:hover{
                 -webkit-transform: translateY(-5px);
                 -ms-transform: translateY(-5px);
                 transform: translateY(-5px);
-                
             }
         &-hi{
-            height: 240px;
-            width: 20px;
+            height: 220px;
+            width: 220px;
+                .view-image{
+                    max-height: 100%;
+                    max-width: 100%;
+                    -ms-interpolation-mode: bicubic;
+                    border-radius: 10px 10px 0px 0px;
+                }
             &-price{
                 position: absolute;
                 margin-left: 5px;
                 bottom: 40px;
                 text-align: center;
-                padding: 7px 0;
-                font-size: 18px;
+                padding: 6px 0;
+                font-size: 16px;
                 background: #7f9dfb;
                 color: #FFF;
                 box-sizing: border-box;
@@ -63,8 +68,9 @@ $背景: rgb(191, 219, 224);
             background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
             &-item_name{
                 color: black;
+                text-overflow:ellipsis;
+                white-space: nowrap;
                 overflow: hidden;
-                text-overflow: ellipsis;
                 line-height: 40px;
                 margin-left:5px ;
             }
@@ -75,9 +81,7 @@ $背景: rgb(191, 219, 224);
     align-items: center;
     background-color: $背景;
     text-align: center;
-    
         &-text {
-          
             width: 100vw;
             font-size: 30px;
     }
