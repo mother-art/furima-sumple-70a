@@ -1,0 +1,50 @@
+.body
+  .header
+
+
+  .wrapper
+    .side
+      %ul
+        %li 
+          マイページ
+          = link_to '#' do
+            = icon 'fa', 'angle-right'
+        %li 
+          出品する
+          =link_to '#' do
+            = icon 'fa', 'angle-right'
+        %li 
+          出品した商品
+          =link_to '#' do
+            = icon 'fa', 'angle-right'
+        %li 
+          購入した商品
+          =link_to '#' do
+            = icon 'fa', 'angle-right'
+        %li 
+          ガイド
+          =link_to '#' do
+            = icon 'fa', 'angle-right'
+        %li 
+          お問い合わせ
+          =link_to '#' do
+            = icon 'fa', 'angle-right'
+    .main
+      .plofile
+        %span.imge
+          = image_tag '/c45e6d8e0587e26ea83ae5b9037e46c96_4620693218539207164_190818_0051.jpg', size: '120x120', alt: '顔写真1'
+        %p 
+          name
+        
+      .content
+        %ul 
+          %li 
+            =link_to "#" do
+              出品した商品一覧
+          %li 
+            =link_to "#" do
+              クレジットカード登録
+          %li
+            =link_to "#" do
+              %input{type:'submit',value:'Log Out'}
+  .footer
