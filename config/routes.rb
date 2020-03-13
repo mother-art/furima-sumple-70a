@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'card/new'
   get 'card/show'
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
+    registrations: 'users/registrations'
   }
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
