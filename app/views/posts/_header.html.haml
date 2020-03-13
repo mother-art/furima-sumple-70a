@@ -26,6 +26,8 @@
         %ul.rightlist
           - if user_signed_in?
             %li.rightlist__logout
+              = link_to "マイページ",  "/users/#{current_user.id}", class: 'rightlist__logout__btn'
+            %li.rightlist__logout
               = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'rightlist__logout__btn'
           - else
             %li.rightlist__login
