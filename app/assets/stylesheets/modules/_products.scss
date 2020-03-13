@@ -9,7 +9,7 @@
     border: solid 2px $default-color;
     border-radius: 10px;
     background-color: rgb(199, 242, 255);
-    .new_product {
+    .new_product, .edit_product {
       .exhibition-input__image, #image-box{
         .previews {
           display: flex;
