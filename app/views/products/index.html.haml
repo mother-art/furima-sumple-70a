@@ -1,4 +1,4 @@
-= render 'posts/header'
+= render 'users/header'
 .products__view
   - @products.each do |product|
     = link_to product_path(product.id),class:"view__box" do
@@ -15,4 +15,4 @@
 .pagenate
   .pagenate-text
     = paginate(@products)
-= render 'posts/footer'
+= render 'users/footer'
