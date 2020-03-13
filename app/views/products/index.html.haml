@@ -2,6 +2,8 @@
 .products__view
   - @products.each do |product|
     = link_to product_path(product.id),class:"view__box" do
+      .view__box-src
+        -# = image_tag product.item_images
       .view__box-hi
         = image_tag product.item_images[0].src.url,class:"view-image"
         .view__box-hi-price
