@@ -34,7 +34,10 @@
     width: 100%;
     margin-bottom: 4px;
     display: flex;
-    input {
+    label{
+      display: none;
+    }
+    .input {
       width: calc(100% - 24px);
       height: 32px;
       padding: 0, 0, 4px;
@@ -45,12 +48,10 @@
       cursor: pointer;
       background-color: #3CCACE;
       padding: 8px;
-      .searchbox__icon {
-        .search-img {
-          width: 100%;
-            vertical-align: bottom;
+      .search-img {
+        width: 100%;
+        vertical-align: bottom;
         }
-      }
     }
   }
 }

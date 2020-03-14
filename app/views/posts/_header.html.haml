@@ -6,13 +6,12 @@
           = link_to root_path do
             = image_tag "/logo.png", class: 'logo-img'
         .searchbox
-          %form{"accept-charset": "UTF-8", action: "#", method: "get"}
-            %input{name: "utf8", type: "hidden", value: "✓"}/
-            %input#searchinput.searchbox--input{name: "key", placeholder: "キーワードから探す"}/
-            %form.button_to{action: "/?type=submit",method: ""}
-              %button{type: "submit"}
-                .searchbox__icon
-                  =image_tag "/icon-search 1.png", class: 'search-img'
+          = form_with url:  search_products_path , method: :get, local: true do |f|
+            = f.label :search
+            = f.text_field :search,  class: 'input',placeholder: "キーワードから探す"
+            %button{type: "submit"}
+              =image_tag "/icon-search 1.png", class: 'search-img', name: nil
+
       .nav
         %ul.leftlist
           .leftlist__category
