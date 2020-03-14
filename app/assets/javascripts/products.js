@@ -10,6 +10,7 @@ $(document).on('turbolinks:load', ()=> {
                   </label>`;
     return html;
   }
+  console.log("www")
   const buildImg = (index, url)=> {
     const html = `<img data-index="${index}" src="${url}" class="previews__image" width="100px" height="100px">`;
     return html;

@@ -1,3 +1,4 @@
+= render 'layouts/header'
 .login-page-login
   .login-registration 
     .login-registration__index 
@@ -21,17 +22,17 @@
             = f.label 'パスワード' ,class: 'login-registration__label'
             %span.login-registration__form--must 必須
             %br/
-            = f.password_field :password, placeholder: '7文字以上',class: 'format-input',required: true
+            = f.password_field :password, placeholder: '8文字以上',class: 'format-input',required: true
           .form-group 
             = f.label 'パスワード確認', class: 'login-registration__label' 
             %span.login-registration__form--must 必須
             %br/
-            = f.password_field :encrypted_password, placeholder: '7文字以上',class: 'format-input',required: true
+            = f.password_field :encrypted_password, placeholder: '8文字以上',class: 'format-input',required: true
           %p.userloginform-into__sub-head
             %b
               本人確認
             .userloginform-into__sub-head__text
-            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません
+              %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません
           .form-group 
             = f.label 'お名前(全角)' ,class: 'login-registration__label' 
             %span.login-registration__form--must 必須
@@ -63,14 +64,17 @@
           .form-group
             =f.label :sex,'性別',class: 'login-registration__label' 
             %span.login-registration__form--must 必須
-            .field-input
-              = f.radio_button :sex, "men"
-              男性
-            .field-input
-              = f.radio_button :sex, "female"
-              女性
-        .actions
-          = f.submit "Next"
-= render "devise/shared/links"
-  
+            .form-group__sex
+              .form-group__sex__men
+                = f.radio_button :sex, "men"
+                男性
+              .form-group__sex_women
+                = f.radio_button :sex, "female"
+                女性
+          .form-group
+            .actions
+              = f.submit "住所登録画面へ進む",class: "actions__next"
+              .actions__login
+                = render "devise/shared/links"
+= render 'layouts/footer'
 

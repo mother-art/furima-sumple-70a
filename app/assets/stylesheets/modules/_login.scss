@@ -1,7 +1,7 @@
 .login-header {
-  background-color: rgb(227, 233, 231);
   height:  128px;
   text-align: center;
+  border-bottom: solid 1px $default-color;
   &__icon {
     display: inline-block;
     margin: 40px 0 0;
@@ -110,29 +110,29 @@
 }
 
 .login-footer {
-  padding: 0 0 220px;
   text-align: center;
-  background-color: rgb(227, 233, 231);
+  background-color: rgb(58, 58, 58);
+  height: 230px;
+  padding-top: 30px;
   &__panel {
-    width: 456px;
-    height: 220px;
-    margin: 0 auto;
     .contents {
       text-align: center;
       li {
         display: inline;
-        font-size: 12px;
+        font-size: 15px;
         margin: 0 16px;
         a {
+          color: white;
+          margin-top: 30px;
           font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
           text-decoration: none;
         }
       }
     }
     img {
+      margin-top: 40px;
       width: 185px;
       height: 49px;
     }
   }
 }
-

@@ -1,0 +1,44 @@
+.body
+  = render 'header'
+  .wrapper
+    .side
+      %ul
+        %li 
+          .side-post
+            =link_to  new_product_path do
+              出品する
+            = icon 'fa', 'angle-right'
+        %li
+          .side-index
+            =link_to '#' do
+              出品した商品
+            = icon 'fa', 'angle-right'
+        %li 
+          .side-buy
+            =link_to '#' do
+              購入した商品
+            = icon 'fa', 'angle-right'
+        %li 
+          .content-card
+            =link_to  new_card_path do
+              クレジットカード登録
+            = icon 'fa', 'angle-right'
+        %li 
+          .content-card
+            =link_to delete_card_index_path do
+              クレジットカード削除
+            = icon 'fa', 'angle-right'
+        %li 
+          .side-guide
+            =link_to '#' do
+              ガイド
+            = icon 'fa', 'angle-right'
+        %li 
+          .side-q
+          =link_to '#' do
+            お問い合わせ
+          = icon 'fa', 'angle-right'
+    .main
+      .main__profile
+        = current_user.nickname
+= render 'footer'

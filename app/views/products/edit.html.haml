@@ -1,8 +1,8 @@
-= render 'posts/header'
+= render 'users/header'
 
 .exhibition-page
   .exhibition-input
-    = form_for(@product) do |f|
+    = form_for @product do |f|
       .exhibition-input__image
         .exhibition-input__image__text
           %strong 出品画像
