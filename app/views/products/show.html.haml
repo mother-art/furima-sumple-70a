@@ -1,118 +1,80 @@
 = render'users/header'
 
 .wrapper
-  .topContents
-    .contents
-      .itembox
-        %h1.itembox__name 
-          =@product.item_name
-        - if user_signed_in?
-          .button_box
-            =link_to edit_product_path(@product.id) do
-              %i{class:'fas fa-edit'}
-            =link_to product_path(@product.id),method: :delete  do
-              %i{class:'fas fa-trash-alt'}
-        - else 
-          .button_box
-        .itembox__imagebox
-          %ul.imagebig
-            %li#bigimage
-              = image_tag @product.item_images[0].src.url ,class:"img-view"
-            %ul.imagesmale
-              %li#smaleimage
-                - @product.item_images.each do |img| 
-                  = image_tag img.src.url,class:"img-list"
-        .itembox__price
-          %span.plice 
-            %span¥
-            = @product.price
-          %span (税込)
-          .itembox__price-ditail
-          %span 送料込み
-      .itembox__Dtail
-        %span 出品者のコメント:
-        = @product.detail
-      .itemtable
-        %table
-          %tb
-            %tr
-              %th 出品者
-              %td 
-                =@product.user.nickname
-            %tr
-              %th カテゴリー
-              %td
-                %ul
-                  %li
-                    =link_to "#" do
-                      =@product.category
-                  -# %li
-                  -#   =link_to "#" do
-                  -#     =@product.category
-                  -# %li
-                  -#   =link_to "#" do
-                  -#     =@product.category
-            %tr
-              %th  ブランド
-              %td
-                
-            %tr
-              %th  商品のサイズ
-              %td
-            %tr
-              %th  商品の状態
-              %td  
-                =@product.item_status
-            %tr
-              %th  発送料の負担
-              %td  送料込み（出品者負担）
-            %tr
-              %th  発送元の地域
-              %td
-                =@product.ship_area
-            %tr
-              %th  発送日の目安
-              %td
-                =@product.ship_date
-      .optionArea
-        %ul
-          %li.okini
-            =link_to "#" do
-              %i{class: "fa fa-star"}
-              お気に入り 0
-        %ul
-          %li.buy-link
-            =link_to "#" do
-              %i{class: "buy-ss"}
-              購入する
-          :plain
-            <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_a9617ffb242be8ef8b555ea7"></script>
-        %ul
-          %li.hata
-            =link_to "#" do
-              %i{class: "fa fa-flag"}
-              不適切な商品の通報
-      -# コメントフォーム
-      .item-coments
-        = form_for '#' do |f|
-          = f.text_area :body
+  .content
+    .content__name 
+      =@product.item_name
+    - if user_signed_in?
+      .button-box
+        =link_to edit_product_path(@product.id) do
+          %i{class:'fas fa-edit'}
+        =link_to product_path(@product.id),method: :delete  do
+          %i{class:'fas fa-trash-alt'}
+    - else 
+      .button-box
+    .content__image
+      = image_tag @product.item_images[0].src.url ,class:"img-view"
+    .content__small-images
+      - @product.item_images.each do |img| 
+        = image_tag img.src.url,class:"img-list"
+    .content__price
+      %span ¥
+      = @product.price
+      %span (税込)
+    .content__price-ditail
+      %span 送料込み
+    .content__dtail
+      %span 出品者のコメント:
+      = @product.detail
+    .content__info
+      .content__info__left
+        %li 出品者
+        %li カテゴリー
+        %li 商品の状態
+        %li 発送料の負担
+        %li 発送元地域
+        %li 発送日の目安
+      .content__info__right
+        %li= @product.user.nickname
+        %li= @product.category
+        %li= @product.item_status
+        %li= @product.postage_cost
+        %li= @product.ship_area
+        %li= @product.ship_date
+    .content__option
+      .content__option__like
+        =link_to "#" do
+          %i{class: "fa fa-star"}
+            お気に入り 0
+      .content__option__buy
+        =link_to "#" do
+          %i{class: "buy-ss"}
+            購入する
+          -# :plain
+          -#   <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_a9617ffb242be8ef8b555ea7"></script>
+      .content__option__hata
+        =link_to "#" do
+          %i{class: "fa fa-flag"}
+          不適切な商品の通報
+    .content__comment
+      = form_for '#' do |f|
+        .content__comment__box
+          = f.text_area :body, class: "content__comment__box__input"
           %p 相手のことを考え丁寧なコメントを心がけましょう。 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          %button{name:"button", type:"submit",class:"commentBtn"}
+          %button{name:"button", type:"submit",class:"content__comment__box__btn"}
             %i{class:"fa fa-comment"}
             コメントする
-  .topform
-    .befor
-      =link_to '#' do
-        %i{class: "fas fa-angle-left"}
-        前のページ
-    .befor
-      =link_to product_path(@product.id.next) do
-        次のページ
-        %i{class: "fas fa-angle-right"}
-  .relatedItem
-    =link_to "#" do
-      =@product.category
-      %span をもっと見る
-
-
+    .content__move
+      .content__move__befor
+        =link_to '#' do
+          %i{class: "fas fa-angle-left"}
+          前のページ
+      .content__move__next
+        =link_to product_path(@product.id.next) do
+          次のページ
+          %i{class: "fas fa-angle-right"}
+    .content__category-search
+      =link_to "#" do
+        = @product.category
+        %span をもっと見る
 = render 'users/footer'
