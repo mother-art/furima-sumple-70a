@@ -6,4 +6,10 @@ class Product < ApplicationRecord
     #タグ機能実装時
     has_many :item_images
     accepts_nested_attributes_for :item_images, allow_destroy: true
+
+
+    def self.search(search)
+        return Product.all unless search
+        Product.where('item_name LIKE(?)', "%#{search}%")
+    end
 end
