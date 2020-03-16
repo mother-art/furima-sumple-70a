@@ -1,88 +1,30 @@
-.body{
-  background-color: ghostwhite;
-  .wrapper{
-    display: flex;
-    justify-content: space-around;
-    .side{
-      margin-top: 25px;
-      height:calc(100vh - 200px);
-      width: 280px;
-      ul{
-        list-style: none;
-        font-size: 16px;
-        background-color: rgb(240, 240, 255);
-        padding-left: 0;
-        margin-top: 0;
-        li{
-          list-style: none;
-          position: relative;
-          padding: 14px 14px 14px 30px;
-          height: 60px;
-          border: 1px solid lightgray;
-          margin: 0 auto;
-          line-height: 60px;
-          i{
-            position: absolute;
-            right: 30px;
-            top:32px;
-            font-size: 24px;
-            color: skyblue;
-
-
-          }
-        }
-      }
+.wrapper {
+  height: 700px;
+  display: flex;
+  background-color: cadetblue;
+  .side {
+    height: calc(100% - 120px);
+    width: 350px;
+    background-color: rgb(199, 242, 255);
+    padding: 60px 50px;
+    .icon {
+      color: $default-color;
     }
-    .main{
-      height:calc(100vh - 100px) ;
-      width: 700px;
-      
-      .profile{
-        padding: 20px;
-        height: 400px;
-        background-color:rgba(221, 220, 220, 0.48);
-        background-image: url("/c45e6d8e0587e26ea83ae5b9037e46c96_4620693218539207164_190818_0051.jpg");
-        background-size: cover;
-        position: relative;
-        img{
-        }
-        p{
-          font-size: 22px;
-          text-align: center;
-        }
-      }
-      .content{
-        padding-top: 50px;
-        padding-bottom: 50px;
-        ul{
-          text-decoration: none;
-          font-size: 16px;
-          li{
-            list-style: none;
-            a{
-              color: rgb(0,0,0);
-              font-weight: bold;
-              text-decoration: none;
-            }
-          }
-          input{
-            color:white;
-            background-color:skyblue;
-            border: skyblue 1px solid ;
-            border-radius: 60%;
-            height: 30px;
-            width: 80px;
-            float: right;
-            
-          }
-          input:focus {
-            outline: none;
-          }
-          input:hover{
-            cursor: pointer;
-          }
-        }
-      }
+    a {
+      @include default-text-style();
+      color: black;
+      text-decoration: none;
+      line-height: 60px;
+      font-size: 18px;
+    }
+  }
+  .main{
+    height: 100%;
+    width: 100%;
+    @include display-center();
+    &__profile {
+      font-size: 70px;
+      @include default-text-style();
     }
   }
 }

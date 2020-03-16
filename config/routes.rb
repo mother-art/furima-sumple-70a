@@ -19,14 +19,20 @@ Rails.application.routes.draw do
       get 'buyer'
     end
   end
-
   resources :ad
   resources :comments
+  resources :buyer, only: [:index] do
+    collection do
+      get 'index', to: 'buyer#index'
+      post 'pay', to: 'buyer#pay'
+      get 'done', to: 'buyer#done'
+    end
+  end
   resources :card, only: [:new, :show] do
     collection do
-      post 'show', to: 'card#show'
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
     end
-  end
+    end
 end
+
