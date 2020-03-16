@@ -18,6 +18,15 @@
       margin: 20px 0;
       text-shadow: $default-font-shadow;
     }
+    .button-box {
+      margin-bottom: 20px;
+      a {
+        text-shadow: $default-font-shadow;
+        border-bottom: solid 1px black;
+        color: black;
+        margin: 0 10px;
+      }
+    }
     &__image {
       .img-view {
         border-radius: 10px;
