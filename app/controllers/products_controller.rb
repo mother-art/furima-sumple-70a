@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  
+  before_action :set_product, only: [:destroy]
+
   def index
     @products = Product.includes(:user).page(params[:page]).per(20).order("created_at DESC")
   end
