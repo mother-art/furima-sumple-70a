@@ -2,17 +2,20 @@
 .products__view
   - @products.each do |product|
     = link_to product_path(product.id),class:"view__box" do
-      .view__box-src
-        = image_tag product.item_images
       .view__box-hi
+        = image_tag product.item_images[0].src.url,class:"view-image"
         .view__box-hi-price
           %span ¥
           = product.price
       .view__box-row
         .view__box-row-item_name
           = product.item_name
-            -# .view__box-row-good
-            -#   = product.good  良いね機能用
+      -if product.buyer_id.present? 
+        .items-box_photo__sold
+          .items-box_photo__sold__inner
+            SOLD
+          -# .view__box-row-good
+          -#   = product.good  良いね機能用
 .pagenate
   .pagenate-text
     = paginate(@products)
