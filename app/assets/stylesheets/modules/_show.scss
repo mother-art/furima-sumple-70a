@@ -25,22 +25,27 @@
         &__imagebox{
           margin: 16px 0 0;
           .imagebig{
-            position: relative;
             align-items: center;
-            img{
-              object-fit: cover;
-              height: 346px;
-              width: 100%;
+            text-align: center;
+            .bigimage{
+                object-fit: cover;
+                position: relative;
+            .img-view{
+              width: 400px;
+              height: 400px;
             }
+          }
             .imagesmale{
+                  .img-list{
+                    height: 100px;
+                    width: 100px;
+                    margin-left: 20px;
+                }
+              
               display: flex;
               justify-content: center;
               margin: 0 auto;
               margin-top: 10px;
-              img{
-                height: 87px;
-                width: 100%;
-              }
             }
           }
         }
