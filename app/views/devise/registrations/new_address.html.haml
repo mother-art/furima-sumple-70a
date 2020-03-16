@@ -1,36 +1,37 @@
 = render 'layouts/header'
 = form_for @address do |f|
   = render "devise/shared/error_messages", resource: @address
+  .login-registration__form 
+    .login-registration__form__content
+      .form-group 
+        = f.label '郵便番号' ,class: 'login-registration__label' 
+        %span.login-registration__form--must 必須
+        %br/
+        = f.text_field :zip_code, placeholder: '例）123456',required: true,class: 'format-input'
+      .form-group 
+        = f.label '都道府県', class: 'login-registration__label' 
+        %span.login-registration__form--must 必須
+        %br/
+        = f.text_field :prefecture, placeholder: '例）大阪府',required: true,class: 'format-input'
+      .form-group 
+        = f.label '市区町村', class: 'login-registration__label'
+        %span.login-registration__form--must 必須
+        %br/
+        = f.text_field :city, placeholder: '例）大阪市',required: true,class: 'format-input'
+      .form-group 
+        = f.label '番地', class: 'login-registration__label'
+        %span.login-registration__form--must 必須
+        %br/
+        = f.text_field :street_num, placeholder: '例）のぞみ野1−1−1',required: true,class: 'format-input'
+      .form-group   
+        = f.label '建物', class: 'login-registration__label'
+        %span.login-registration__form--option 任意
+        %br/
+        = f.text_field :building, placeholder: '例）skyビル10-3',class: 'format-input'
 
-  .form-group 
-    = f.label '郵便番号' ,class: 'login-registration__label' 
-    %span.login-registration__form--must 必須
-    %br/
-    = f.text_field :zip_code, placeholder: '例）123456',required: true,class: 'format-input'
-  .form-group 
-    = f.label '都道府県', class: 'login-registration__label' 
-    %span.login-registration__form--must 必須
-    %br/
-    = f.text_field :prefecture, placeholder: '例）大阪府',required: true,class: 'format-input'
-  .form-group 
-    = f.label '市区町村', class: 'login-registration__label'
-    %span.login-registration__form--must 必須
-    %br/
-    = f.text_field :city, placeholder: '例）大阪市',required: true,class: 'format-input'
-  .form-group 
-    = f.label '番地', class: 'login-registration__label'
-    %span.login-registration__form--must 必須
-    %br/
-    = f.text_field :street_num, placeholder: '例）のぞみ野1−1−1',required: true,class: 'format-input'
-  .form-group   
-    = f.label '建物', class: 'login-registration__label'
-    %span.login-registration__form--option 任意
-    %br/
-    = f.text_field :building, placeholder: '例）skyビル10-3',class: 'format-input'
-
-    %p.userloginform-into
-      ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-
-  = f.submit "send"
+        .userloginform-into
+          %p ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+      .user-submit
+        = f.submit "アカウント作成", class: "user-submit__btn"
 
 = render 'layouts/footer'
