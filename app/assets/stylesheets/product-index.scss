@@ -1,7 +1,4 @@
-$背景: rgb(191, 219, 224);
 .products__view{
-    height: 800px;
-    background-color: $背景;
     padding: 20px 100px;
     display: flex;
     flex-wrap: wrap;
@@ -30,8 +27,8 @@ $背景: rgb(191, 219, 224);
         height: 260px;
         text-decoration: none;
         width: 220px;
-        background-color: skyblue;
-        border: solid 1px gray;
+        background-color: white;
+        border: solid 1px $default-color;
         margin-right:26px;
         position:relative;
         border-radius: 10px;
