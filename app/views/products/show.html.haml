@@ -5,7 +5,7 @@
     .contents
       .itembox
         %h1.itembox__name 
-          =@product.user_id
+          =@product.item_name
         - if user_signed_in?
           .button_box
             =link_to edit_product_path(@product.id) do
@@ -17,35 +17,28 @@
         .itembox__imagebox
           %ul.imagebig
             %li#bigimage
-              -# =image_tag 
-              .img
+              = image_tag @product.item_images[0].src.url ,class:"img-view"
             %ul.imagesmale
               %li#smaleimage
-                -# =image_tag ’’
-                .img
-              %li
-                -# =image_tag ’’
-                .img
-              %li
-                -# =image_tag ’’ 
-                .img
+                - @product.item_images.each do |img| 
+                  = image_tag img.src.url,class:"img-list"
         .itembox__price
           %span.plice 
             %span¥
             = @product.price
-          .itembox__price-ditail
           %span (税込)
+          .itembox__price-ditail
           %span 送料込み
       .itembox__Dtail
-        %span 
-          = @product.detail
+        %span 出品者のコメント:
+        = @product.detail
       .itemtable
         %table
           %tb
             %tr
               %th 出品者
               %td 
-                =@product.user_id
+                =@product.user.nickname
             %tr
               %th カテゴリー
               %td
