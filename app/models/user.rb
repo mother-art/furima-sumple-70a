@@ -7,7 +7,7 @@ class User < ApplicationRecord
         #カタカナのみを許可
         validates :tel, presence: true, format: {with: /\A[0-9]+\z/, message: "全角数字は入力できません。"}
         #半角数字のみを許可
-        has_many :products
+        has_many :products, dependent: :destroy
         has_many :comments
         has_one :address
         has_many :cards
