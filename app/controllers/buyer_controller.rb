@@ -22,4 +22,9 @@ class BuyerController < ApplicationController
     )
     redirect_to action: 'done' 
     end
+
+    def  done
+      @product_buyer= Product.find(params[:id])
+      @product_buyer.update( buyer_id: current_user.id)
+     end
   end
