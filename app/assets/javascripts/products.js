@@ -1,3 +1,4 @@
+//= require turbolinks
 $(document).on('turbolinks:load', ()=> {
   const buildFileField = (num)=> {
     const html = `<label class="image-label" for="product_item_images_attributes_${num}_src">
