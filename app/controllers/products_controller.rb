@@ -54,9 +54,13 @@ class ProductsController < ApplicationController
   end
 
     def destroy
-      product = Product.find_by(id: params[:id])
-      product.destroy
-      redirect_to products_path
+      product = Product.find(params[:id])
+      if product.destroy
+      redirect_to products_path, notice: '出品した商品を削除しました'
+      else
+      flash.now[:alert] = '商品を削除できませんでした'
+      render :index
+      end
     end
 
   def buyer

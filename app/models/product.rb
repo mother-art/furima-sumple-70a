@@ -5,6 +5,7 @@ class Product < ApplicationRecord
     # belongs_to :main_tag
     #タグ機能実装時
     has_many :item_images, dependent: :destroy
+    accepts_nested_attributes_for :item_images
     def self.search(search)
         return Product.all unless search
         Product.where('item_name LIKE(?)', "%#{search}%")
