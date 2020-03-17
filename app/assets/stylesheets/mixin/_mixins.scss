@@ -83,3 +83,10 @@
   height: 30px;
   margin-bottom: 60px;
 }
+
+@mixin credit-font-style {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(14, 13, 13,0.8);
+  padding-bottom: 40px;
+}

@@ -79,3 +79,53 @@ width:80px;
 }
 }
 }
+
+
+.show-wrapper{
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: white;
+  .show-content{
+    height: 500px;
+    width: 600px;
+    margin: 60px auto;
+    background-color:#c7f2ff;;
+    border: rgb(228, 228, 227) 1px solid;
+    border-radius: 15px;
+    &__small{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 10px;
+      .credit-header{
+        @include credit-font-style();
+        font-size: 30px;
+        padding-bottom: 50px;
+      }
+      .credit__main{
+        @include credit-font-style();
+        .credit-list{
+        padding-bottom: 30px;
+        }
+        .credit-set{
+          li{
+            list-style: none;
+            padding-bottom: 8px;
+          }
+          img{
+            size: 200px;
+          }
+          form{
+            button{
+              @include Hissu-style();
+            }
+          }
+        }
+        .about{
+          padding-top: 38px;
+        }
+      }
+    }
+  }
+}
