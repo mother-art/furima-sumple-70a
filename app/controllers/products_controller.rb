@@ -1,16 +1,11 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:destroy]
-
+  
   def index
     @products = Product.includes(:user).page(params[:page]).per(20).order("created_at DESC")
   end
 
   def show
     @product = Product.find(params[:id])
-  end
-
-  def search
-    @products = Product.search(params[:search]).page(params[:page]).per(20).order("created_at DESC")
   end
 
   def new
@@ -40,7 +35,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
   end
 
   def update
@@ -53,7 +47,8 @@ class ProductsController < ApplicationController
   end
 
     def destroy
-      if @product.destroy
+      product = Product.find(params[:id])
+      if product.destroy
       redirect_to products_path, notice: '出品した商品を削除しました'
       else
       flash.now[:alert] = '商品を削除できませんでした'
@@ -71,9 +66,5 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
-  end
-
-  def move_to_index
-    redirect_to action: :index unless user_signed_in?
   end
 end

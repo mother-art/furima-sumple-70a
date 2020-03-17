@@ -16,7 +16,9 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
     member do
-      get 'buyer'
+      get 'veri', to: 'buyer#veri'
+      post 'pay', to: 'buyer#pay'
+      get 'done', to: 'buyer#done'
     end
     collection do
       get 'search'
@@ -24,12 +26,7 @@ Rails.application.routes.draw do
   end
   resources :ad
   resources :comments
-  resources :buyer, only: [:index] do
-    collection do
-      get 'index', to: 'buyer#index'
-      post 'pay', to: 'buyer#pay'
-      get 'done', to: 'buyer#done'
-    end
+  resources :buyer  do
   end
   resources :card, only: [:new, :show] do
     collection do
