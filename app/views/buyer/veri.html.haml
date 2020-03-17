@@ -53,29 +53,4 @@
       %br
       = form_tag(action: :pay, method: :post) do
         %button このカードで購入する
-    -# .content__option__hata
-    -#   =link_to "#" do
-    -#     %i{class: "fa fa-flag"}
-    -#     不適切な商品の通報
-    -# .content__comment
-    -#   = form_for '#' do |f|
-    -#     .content__comment__box
-    -#       = f.text_area :body, class: "content__comment__box__input"
-    -#       %p 相手のことを考え丁寧なコメントを心がけましょう。 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    -#       %button{name:"button", type:"submit",class:"content__comment__box__btn"}
-    -#         %i{class:"fa fa-comment"}
-    -#         コメントする
-    -# .content__move
-    -#   .content__move__befor
-    -#     =link_to '#' do
-    -#       %i{class: "fas fa-angle-left"}
-    -#       前のページ
-    -#   .content__move__next
-    -#     =link_to product_path(@product.id.next) do
-    -#       次のページ
-    -#       %i{class: "fas fa-angle-right"}
-    -# .content__category-search
-    -#   =link_to "#" do
-    -#     = @product.category
-    -#     %span をもっと見る
 = render'users/footer'
