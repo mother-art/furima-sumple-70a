@@ -14,6 +14,10 @@
       .button-box
     .content__image
       = image_tag @product.item_images[0].src.url ,class:"img-view"
+        -if @product.buyer_id.present? 
+        .content__image__sold
+          .content__image__sold-inner
+            SOLD
     .content__small-images
       - @product.item_images.each do |img| 
         = image_tag img.src.url,class:"img-list"
@@ -41,18 +45,20 @@
         %li= @product.postage_cost
         %li= @product.ship_area
         %li= @product.ship_date
-    .content__option
-      .content__option__like
-        =link_to "#" do
-          %i{class: "fa fa-star"}
-            お気に入り 0
-    - if user_signed_in? && current_user.id != @product.user_id        
-      .content__option__buy
-        =link_to veri_product_path(@product.id) do
-          %i{class: "buy-ss"}
-            購入する
-          :plain
-            <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_a9617ffb242be8ef8b555ea7"></script>
+    -if @product.buyer_id.present? 
+      .soldout
+        売り切れ中
+    - else
+      .content__option
+        .content__option__like
+          =link_to "#" do
+            %i{class: "fa fa-star"}
+              お気に入り 0
+      - if user_signed_in? && current_user.id != @product.user_id
+        .content__option__buy
+          =link_to veri_product_path(@product.id) do
+            %i{class: "buy-ss"}
+              購入する
     .content__option__hata
       =link_to "#" do
         %i{class: "fa fa-flag"}
