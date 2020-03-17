@@ -7,10 +7,8 @@
     - if user_signed_in? && current_user.id == @product.user_id
       .button-box
         =link_to edit_product_path(@product.id) do
-          %span 編集
           %i{class:'fas fa-edit'}
         =link_to product_path(@product.id),method: :delete  do
-          %span 削除
           %i{class:'fas fa-trash-alt'}
     - else 
       .button-box
@@ -48,17 +46,17 @@
         =link_to "#" do
           %i{class: "fa fa-star"}
             お気に入り 0
-      - if user_signed_in? && current_user.id != @product.user_id        
-        .content__option__buy
-          =link_to buyer_index_path(@product.id) do
-            %i{class: "buy-ss"}
-              購入する
-        :plain
-          <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_a9617ffb242be8ef8b555ea7"></script>
-      .content__option__hata
-        =link_to "#" do
-          %i{class: "fa fa-flag"}
-          不適切な商品の通報
+    - if user_signed_in? && current_user.id != @product.user_id        
+      .content__option__buy
+        =link_to veri_product_path(@product.id) do
+          %i{class: "buy-ss"}
+            購入する
+          :plain
+            <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_a9617ffb242be8ef8b555ea7"></script>
+    .content__option__hata
+      =link_to "#" do
+        %i{class: "fa fa-flag"}
+        不適切な商品の通報
     .content__comment
       = form_for '#' do |f|
         .content__comment__box
