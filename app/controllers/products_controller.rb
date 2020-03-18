@@ -7,6 +7,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @product_name = MainTag.find(@product.category).name
+    @product_name2 = MainTag.find(@product.category).parent.name
+    @product_name3 = MainTag.find(@product.category).parent.parent.name
+    # binding.pry
   end
 
   def search
@@ -37,29 +41,34 @@ class ProductsController < ApplicationController
     else
       render :new
     end
+    binding.pry
   end
 
   def edit
     @product = Product.find(params[:id])
+    @category_parent_array = ["---"]
+    MainTag.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
 
   def update
-    product = Product.find(params[:id])
-    if product.update(product_params)
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
 
     else
       render :edit
     end
   end
 
-    def destroy
-      if @product.destroy
-      redirect_to products_path, notice: '出品した商品を削除しました'
-      else
-      flash.now[:alert] = '商品を削除できませんでした'
-      render :index
-      end
+  def destroy
+    if @product.destroy
+    redirect_to products_path, notice: '出品した商品を削除しました'
+    else
+    flash.now[:alert] = '商品を削除できませんでした'
+    render :index
     end
+  end
 
   def buyer
   end

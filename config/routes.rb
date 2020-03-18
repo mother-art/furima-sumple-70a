@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   root "users#index"
   resources :users
-  resources :products, only: [:index, :show, :new, :edit, :destroy, :create] do
+  resources :products, only: [:index, :show, :new, :edit, :destroy, :create, :update] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
     end
-    end
+  end
+  post "products/:id/update" => "products#update"
 end
 

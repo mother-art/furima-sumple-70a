@@ -36,7 +36,12 @@
         %li 発送日の目安
       .content__info__right
         %li= @product.user.nickname
-        %li= @product.category
+        %li
+          = link_to @product_name3
+          %br/
+          = link_to @product_name2
+          %br/
+          = link_to @product_name
         %li= @product.item_status
         %li= @product.postage_cost
         %li= @product.ship_area

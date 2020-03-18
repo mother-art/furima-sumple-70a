@@ -1,4 +1,3 @@
-//= require turbolinks
 $(document).on('turbolinks:load', ()=> {
   const buildFileField = (num)=> {
     const html = `<label class="image-label" for="product_item_images_attributes_${num}_src">
@@ -11,7 +10,6 @@ $(document).on('turbolinks:load', ()=> {
                   </label>`;
     return html;
   }
-  console.log("www")
   const buildImg = (index, url)=> {
     const html = `<img data-index="${index}" src="${url}" class="previews__image" width="100px" height="100px">`;
     return html;

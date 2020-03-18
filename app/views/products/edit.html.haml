@@ -7,10 +7,19 @@
         .exhibition-input__image__text
           %strong 出品画像
           %p 必須
-        %p 最大10枚までアップロードできます
-        = f.label :image, class: 'image-label' do
-          = icon('fas','camera-retro', class: 'icon')
-          = f.file_field :image, class: 'image-label__file'
+        %p 最大5枚までアップロードできます
+        #image-box
+          .previews
+            - if @product.persisted?
+              - @product.item_images.each_with_index do |item_image, i|
+                = image_tag item_image.src.url, data: { index: i }, width: "100",height: "100",class: 'test'
+          .input-btn
+            = f.fields_for :item_images do |i|
+              = i.label :src, class: 'image-label' do
+                %div{data: {index: (i.index)}, class: "js-file_group"}
+                  = icon('fas','camera-retro', class: 'icon')
+                  = i.file_field :src, class: 'js-file'
+                  1枚目
       .exhibition-input__name-detail
         .exhibition-input__name-detail__text
           %strong 商品名
@@ -23,14 +32,14 @@
       .exhibition-input__info
         .exhibition-input__info__title
           商品の詳細
-        .exhibition-input__info__text
-          %strong カテゴリー
-          %p 必須
-        = f.select :category, [["選択してください", ""], ["レディース", "レディース"], ["メンズ", "メンズ"], ["その他", "その他"]]
-        .exhibition-input__info__text
-          %strong ブランド
-          %span 任意
-        = f.text_field :item_name, class: "exhibition-input__info__brand", placeholder: " 例) ユニクロ"
+        .listing-form-box
+          .listing-product-detail__category
+            .listing-product-detail__category__box
+              = f.label 'カテゴリー', class: 'listing-default__label'
+              .listing-default--require 必須
+            .listing-select-wrapper
+              .listing-select-wrapper__box
+                = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
         .exhibition-input__info__text
           %strong 商品の状態
           %p 必須
