@@ -6,7 +6,8 @@
       =@product.item_name
     - if user_signed_in? && current_user.id == @product.user_id
       .button-box
-        =link_to edit_product_path(@product.id) do
+        -# =link_to edit_product_path(@product.id) do
+        = link_to "#" do
           %i{class:'fas fa-edit'}
         =link_to product_path(@product.id),method: :delete  do
           %i{class:'fas fa-trash-alt'}
@@ -54,15 +55,15 @@
           =link_to "#" do
             %i{class: "fa fa-star"}
               お気に入り 0
-      - if user_signed_in? && current_user.id != @product.user_id
-        .content__option__buy
-          =link_to veri_product_path(@product.id) do
-            %i{class: "buy-ss"}
-              購入する
-    .content__option__hata
-      =link_to "#" do
-        %i{class: "fa fa-flag"}
-        不適切な商品の通報
+        - if user_signed_in? && current_user.id != @product.user_id
+          .content__option__buy
+            =link_to veri_product_path(@product.id) do
+              %i{class: "buy-ss"}
+                購入する
+        .content__option__hata
+          =link_to "#" do
+            %i{class: "fa fa-flag"}
+            不適切な商品の通報
     .content__comment
       = form_for '#' do |f|
         .content__comment__box

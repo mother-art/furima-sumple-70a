@@ -59,6 +59,10 @@ class ProductsController < ApplicationController
   def buyer
   end
 
+  def search
+    @products = Product.search(params[:search]).page(params[:page]).per(20).order("created_at DESC")
+  end
+
   private
   def product_params
     params.require(:product).permit(:item_name, :detail, :category, :price, :item_status, :postage_cost, :ship_area, :ship_method, :ship_date, item_images_attributes: [:src]).merge(seller_id: current_user.id, user_id: current_user.id)
