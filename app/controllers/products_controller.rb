@@ -46,20 +46,21 @@ class ProductsController < ApplicationController
   def update
     product = Product.find(params[:id])
     if product.update(product_params)
-
+      binding.pry
     else
       render :edit
     end
+    binding.pry
   end
 
-    def destroy
-      if @product.destroy
-      redirect_to products_path, notice: '出品した商品を削除しました'
-      else
-      flash.now[:alert] = '商品を削除できませんでした'
-      render :index
-      end
+  def destroy
+    if @product.destroy
+    redirect_to products_path, notice: '出品した商品を削除しました'
+    else
+    flash.now[:alert] = '商品を削除できませんでした'
+    render :index
     end
+  end
 
   def buyer
   end

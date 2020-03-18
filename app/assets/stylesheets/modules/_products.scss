@@ -34,12 +34,12 @@
         }
         .input-btn {
           display: flex;
-          .image-label{
+          .image-label, .edit-image-label{
             #btn-5 {
               display: none;
             }
-            .js-file_group {
-              .js-file {
+            .js-file_group, .edit-js-file_group {
+              .js-file, .edit-js-file {
                 display: none;
               }
               .icon {
@@ -236,4 +236,10 @@
   height: 25px;
   margin-bottom: 20px;
   @include input-border-style();
+}
+
+.images {
+  width: 100px;
+  margin: 10px 10px 0 0;
+  border-radius: 10px;
 }
