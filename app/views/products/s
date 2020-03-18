@@ -12,15 +12,11 @@
           .previews
             - if @product.persisted?
               - @product.item_images.each_with_index do |item_image, i|
-                = image_tag item_image.src.url, data: { index: i }, size: "100×100", class: "images", id: "#{item_image.id}"
+                = image_tag item_image.src.url, data: { index: i }, size: "100×100", class: "images"
           .input-btn
             = f.fields_for :item_images do |i|
-              = i.label :src, class: 'image-label' do
-                %div{data: {index: (i.index)}, class: "js-file_group"}
-                  = icon('fas','camera-retro', class: 'icon')
-                  = i.file_field :src, class: 'js-file',value: i.object.id
-                  = i.hidden_field :id, value: i.object.id
-              .edit-image-preview_btn_delete{data: i.index,id: "#{i.object.id}"} 削除
+              = i.file_field :src, class: 'js-file',value: i.object.id
+              = i.hidden_field :id, value: i.object.id
       .exhibition-input__name-detail
         .exhibition-input__name-detail__text
           %strong 商品名

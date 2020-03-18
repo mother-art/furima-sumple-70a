@@ -11,17 +11,6 @@ $(document).on('turbolinks:load', ()=> {
                   </label>`;
     return html;
   }
-  const buildFileField2 = (num)=> {
-    const html = `<label class="image-label" for="product_item_images_attributes_${num}_src">
-                    <div data-index="${num}" class="js-file_group" id="btn-${num}">
-                      <i class="fas fa-camera-retro icon"></i>
-                      <input class="js-file" type="file"
-                      name="product[item_images_attributes][${num}][src]"
-                      id="product_item_images_attributes_${num}_src">
-                    </div>
-                  </label>`;
-    return html;
-  }
   console.log("www")
   const buildImg = (index, url)=> {
     const html = `<img data-index="${index}" src="${url}" class="previews__image" width="100px" height="100px">`;
@@ -45,10 +34,11 @@ $(document).on('turbolinks:load', ()=> {
     }
   });
 
-  $(document).on("click", ".edit-image-preview_btn_delete", function() {
-    const removeIndex = $(this).data('index')
-    console.log("s")
-    $('.input-btn').append(buildFileField2(fileIndex[0]));
 
+
+  $(document).on("click", ".edit-image-preview_btn_delete", function() {
+    remove_id = ("#" + this.id)
+    console.log(remove_id)
+    $(remove_id).remove();
   })
 });

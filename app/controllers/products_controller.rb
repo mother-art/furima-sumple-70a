@@ -46,11 +46,9 @@ class ProductsController < ApplicationController
   def update
     product = Product.find(params[:id])
     if product.update(product_params)
-      binding.pry
     else
       render :edit
     end
-    binding.pry
   end
 
   def destroy
@@ -67,7 +65,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:item_name, :detail, :category, :price, :item_status, :postage_cost, :ship_area, :ship_method, :ship_date, item_images_attributes: [:src]).merge(seller_id: current_user.id, user_id: current_user.id)
+    params.require(:product).permit(:item_name, :detail, :category, :price, :item_status, :postage_cost, :ship_area, :ship_method, :ship_date, item_images_attributes: [:src, :_destroy, :id]).merge(seller_id: current_user.id, user_id: current_user.id)
   end
 
   def set_product
