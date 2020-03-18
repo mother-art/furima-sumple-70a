@@ -130,14 +130,6 @@ car_body.children.create([{:name=>"国内自動車本体"}])
 
 
 
-car = MainTag.create(:name=>"自動車・オートバイ")
-
-car_body= car.children.create(:name=>"自動車本体")
-
-car_body.children.create([{:name=>"国内自動車本体"}])
-
-
-
 other = MainTag.create(:name=>"その他")
 
 other_pet= other.children.create(:name=>"ペット用品")
