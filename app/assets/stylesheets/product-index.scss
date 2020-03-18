@@ -1,17 +1,34 @@
-$背景: rgb(191, 219, 224);
 .products__view{
-    height: 800px;
-    background-color: $背景;
     padding: 20px 100px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     .view__box{
+        .items-box_photo__sold{
+            width: 0;
+            height: 0;
+            border-top: 60px solid #ea352d ;
+            border-right: 60px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-left: 60px solid #ea352d ;
+            z-index:100;
+            position: relative;
+            top:-260px;
+            border-radius: 10px 0 0 0 ;
+            &__inner{
+                transform: rotate(-45deg);
+                font-size: 28px;
+                margin:-25px 0px 0px -50px;
+                color: #fff;
+                letter-spacing: 2px;
+                font-weight: 600;
+            }
+        }
         height: 260px;
         text-decoration: none;
         width: 220px;
-        background-color: skyblue;
-        border: solid 1px gray;
+        background-color: white;
+        border: solid 1px $default-color;
         margin-right:26px;
         position:relative;
         border-radius: 10px;
@@ -79,7 +96,7 @@ $背景: rgb(191, 219, 224);
 }
 .pagenate{
     align-items: center;
-    background-color: $背景;
+    background-color: white;
     text-align: center;
         &-text {
             width: 100vw;

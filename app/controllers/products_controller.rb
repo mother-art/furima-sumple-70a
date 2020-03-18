@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:destroy]
-
+  
   def index
     @products = Product.includes(:user).page(params[:page]).per(20).order("created_at DESC")
   end
@@ -11,10 +10,6 @@ class ProductsController < ApplicationController
     @product_name2 = MainTag.find(@product.category).parent.name
     @product_name3 = MainTag.find(@product.category).parent.parent.name
     # binding.pry
-  end
-
-  def search
-    @products = Product.search(params[:search]).page(params[:page]).per(20).order("created_at DESC")
   end
 
   def new
@@ -61,16 +56,22 @@ class ProductsController < ApplicationController
     end
   end
 
-  def destroy
-    if @product.destroy
-    redirect_to products_path, notice: '出品した商品を削除しました'
-    else
-    flash.now[:alert] = '商品を削除できませんでした'
-    render :index
+    def destroy
+      product = Product.find(params[:id])
+      if product.destroy
+      redirect_to products_path, notice: '出品した商品を削除しました'
+      else
+      flash.now[:alert] = '商品を削除できませんでした'
+      render :index
+      end
     end
   end
 
   def buyer
+  end
+
+  def search
+    @products = Product.search(params[:search]).page(params[:page]).per(20).order("created_at DESC")
   end
 
   private
@@ -80,9 +81,5 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
-  end
-
-  def move_to_index
-    redirect_to action: :index unless user_signed_in?
   end
 end

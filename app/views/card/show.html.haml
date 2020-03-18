@@ -1,19 +1,20 @@
 = render 'users/header'
-.contents-credit
-  .content
-    .credit
+
+.show-wrapper
+  .show-content
+    .show-content__small
       .credit-header
         支払い方法
-      .credit-main
-        .credit-detail
+      .credit__main
+        .credit__detail
         
           -@card = Card.find_by(user_id: current_user.id)
             -unless @card == nil
             .credit-list
               クレジットカード一覧
-            .credit-setting
+            .credit-set
               %li.card-logo 
-                = image_tag( "logo/visa.png",height:"100%", width:"45px")
+                = image_tag( "logo/visa.png",height:"100%", width:"80px")
               %li.credit-number
               = "**** **** **** " + @default_card_information.last4
               - exp_month = @default_card_information.exp_month.to_s
@@ -22,7 +23,7 @@
               = exp_month + " / " + exp_year
               = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
                 %input{ type: "hidden", name: "card_id", value: "",class:"delet-btn" }
-                  %button.delet-btn 削除する
+                  %button.delet-btn 削除
           -@card = Card.find_by(user_id: current_user.id)
             -if @card == nil
             =link_to new_card_path, class: "credit-btn" do
@@ -30,7 +31,9 @@
         .about
           支払い方法について
           %i.fa.fa-angle-right
- 
+
+=render 'users/footer'
+
 
 
 

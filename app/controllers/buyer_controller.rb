@@ -1,7 +1,8 @@
 class BuyerController < ApplicationController
     require 'payjp'
   
-    def index
+    def veri
+      @product = Product.find(params[:id])
       card = Card.where(user_id: current_user.id).first
       if card.blank?
         redirect_to controller: "card", action: "new"
@@ -22,4 +23,9 @@ class BuyerController < ApplicationController
     )
     redirect_to action: 'done' 
     end
+
+    def  done
+      @product_buyer= Product.find(params[:id])
+      @product_buyer.update( buyer_id: current_user.id)
+     end
   end
