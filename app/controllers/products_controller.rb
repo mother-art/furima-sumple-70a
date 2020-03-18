@@ -36,7 +36,6 @@ class ProductsController < ApplicationController
     else
       render :new
     end
-    binding.pry
   end
 
   def edit
@@ -64,7 +63,6 @@ class ProductsController < ApplicationController
       flash.now[:alert] = '商品を削除できませんでした'
       render :index
       end
-    end
   end
 
   def buyer
