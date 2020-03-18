@@ -28,6 +28,13 @@
       }
     }
     &__image {
+      .content__image__sold{
+            color: white;
+            width: 100%;
+            background-color:red;
+            text-align: center;
+            font-size: 30px;
+      }
       .img-view {
         border-radius: 10px;
       }

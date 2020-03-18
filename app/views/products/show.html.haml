@@ -17,7 +17,7 @@
         -if @product.buyer_id.present? 
         .content__image__sold
           .content__image__sold-inner
-            SOLD
+            SOLD OUT
     .content__small-images
       - @product.item_images.each do |img| 
         = image_tag img.src.url,class:"img-list"
