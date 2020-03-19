@@ -7,20 +7,20 @@
         .exhibition-input__image__text
           %strong 出品画像
           %p 必須
-        %p 最大5枚までアップロードできます
         #image-box
           .previews
             - if @product.persisted?
               - @product.item_images.each_with_index do |item_image, i|
-                = image_tag item_image.src.url, data: { index: i }, size: "100×100", class: "images", id: "#{item_image.id}"
+                = image_tag item_image.src.url, data: { index: i }, size: "100×100", class: "images", id: "remove-image#{item_image.id}"
           .input-btn
             = f.fields_for :item_images do |i|
-              = i.label :src, class: 'image-label' do
+              = i.label :src, class: 'image-label', id: "remove-btn#{i.object.id}" do
                 %div{data: {index: (i.index)}, class: "js-file_group"}
                   = icon('fas','camera-retro', class: 'icon')
                   = i.file_field :src, class: 'js-file',value: i.object.id
-                  = i.hidden_field :id, value: i.object.id
-              .edit-image-preview_btn_delete{data: i.index,id: "#{i.object.id}"} 削除
+                = i.check_box :_destroy, id: "#{i.object.id}", class: "p#{i.index.to_s} remove-btn"
+                %span{class: "p#{i.index.to_s}"} ⇦削除
+            .input-add 追加
       .exhibition-input__name-detail
         .exhibition-input__name-detail__text
           %strong 商品名
@@ -72,7 +72,7 @@
         %i 販売手数料（10%）
       
       .exhibition-input__last
-        = f.submit "出品する", class: "exhibition-input__last__submit"
+        = f.submit "変更を保存", class: "exhibition-input__last__submit"
         = link_to root_path do
           .exhibition-input__last__return 戻る
         .exhibition-input__last__note

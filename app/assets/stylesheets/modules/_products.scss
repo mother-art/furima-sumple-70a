@@ -11,6 +11,7 @@
     background-color: rgb(199, 242, 255);
     .new_product, .edit_product {
       .exhibition-input__image, #image-box{
+        height: 250px;
         .previews {
           display: flex;
           border-radius: 5px;
@@ -54,6 +55,17 @@
                 @include display-center();
               }
             }
+          }
+          .input-add {
+            height: 30px;
+            width: 90px;
+            margin-top: 15px;
+            background-color: white;
+            border-radius: 10px;
+            border: dashed 1px $default-color;
+            text-shadow: 0 0 1.2px gray;
+            cursor: pointer;
+            @include display-center();
           }
         }
       }
@@ -239,7 +251,13 @@
 }
 
 .images {
+  height: 100px;
   width: 100px;
-  margin: 10px 10px 0 0;
-  border-radius: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
 }
+
+.p0 {
+  display: none;
+}
+
