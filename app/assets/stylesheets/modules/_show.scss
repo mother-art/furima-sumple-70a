@@ -14,7 +14,7 @@
     background-color: white;
     width: 600px;
     &__name {
-     font-size: 35px;
+      font-size: 35px;
       margin: 20px 0;
       text-shadow: $default-font-shadow;
     }
@@ -139,6 +139,46 @@
           color: $default-color;
           @include input-border-style();
         }
+        .comment-title{
+          width: 90%;
+          padding-top: 15px;
+          display: flex;
+          justify-content: center;
+          border-top: solid 1px silver;
+          margin-top: 20px;
+          font-size: 18px;
+          font-weight: bold;
+          color: rgb(47, 47, 47)
+        }
+      }
+    }
+    &__comments{
+      height: 400px;
+      width:90%;
+      padding-left: 20px;
+      overflow: scroll;
+      margin-bottom: 70px;
+      &__box{
+        &__text{
+          margin-bottom: 28px;
+          border-bottom: 1px silver solid;
+          &__info{
+          font-size: 10px;
+          margin-bottom: 20px;
+          color: rgb(102, 102, 102);
+          display: flex;
+          justify-content: space-between;
+            a{
+              font-size: 14px;
+              color: black;
+              font-weight: bold;
+            }
+          }
+          &__content{
+            margin-bottom: 8px;
+          }
+        }
+
       }
     }
     &__move {
@@ -171,240 +211,3 @@
 
 
 
-// .wrapper{
-//   background-color: #f8f8f8;
-//   .topContents{
-//     padding: 40px;
-//     .contents{
-//       margin: 0 auto;
-//       background-color:white;
-//       width:700px;
-//       padding:24px 40px 0px;
-//       .itembox{
-//         &__name{
-//           font-size: 24px;
-//           font-weight: bold;
-//           text-align: center;
-//         }
-//         .button_box{
-//           display: flex;
-//           justify-content:flex-end;
-//           a{
-//             text-decoration: none;
-//             color:#333;
-//             padding-left: 8px;
-//           }
-//         }
-//         &__imagebox{
-//           margin: 16px 0 0;
-//           .imagebig{
-//             align-items: center;
-//             text-align: center;
-//             .bigimage{
-//                 object-fit: cover;
-//                 position: relative;
-//             .img-view{
-//               width: 400px;
-//               height: 400px;
-//             }
-//           }
-//             .imagesmale{
-//                   .img-list{
-//                     height: 100px;
-//                     width: 100px;
-//                     margin-left: 20px;
-//                 }
-              
-//               display: flex;
-//               justify-content: center;
-//               margin: 0 auto;
-//               margin-top: 10px;
-//             }
-//           }
-//         }
-//         .itembox__price{
-//           text-align: center;
-//           margin: 24px 0 24px;
-//           .plice{
-//             font-size: 46px;
-//             font-weight: bold;
-//             margin: 0 10px 0 0;
-//           }
-//           &__price-ditail{
-//             font-size: 16px;
-//           }
-//         }
-//       }
-//       .itembox__Dtail{
-//         font-size: 18px;
-//         margin-bottom: 30px;
-//         margin-top: 10px;
-//       }
-//       .itemtable{
-//         margin-bottom: 20px;
-//         table{
-//           width: 100%;
-//           height: 375px;
-//           border-collapse: collapse;
-//           border: 1px solid #f8f8f8;
-//           tr{
-//             display: table-row;
-//             vertical-align: inherit;
-//             border-color: inherit;
-//             th{
-//               width: 20%;
-//               background-color: #eee;
-//               font-weight: 400;
-//               padding: 8px;
-//               border: 1px solid #dedede;
-//               font-size: 14px;
-//               text-align:center;
-//             }
-//             td{
-//               width: 61%;
-//               padding: 15px 15px;
-//               border: 1px solid #dedede;
-//               font-size: 14px;
-//               font-weight: 400;
-//             }
-//             a{
-//               text-decoration: none;
-//               color: #3ccace;
-//               font-weight: 400;
-//             }
-//           }
-//         }
-//       }
-//       .optionArea{
-//         display: flex;
-//         justify-content: space-between;
-//         ul{
-//           margin: 10px 0 0;
-//           display: flex;
-//           .okini{
-//             margin-right: auto;
-//             border-radius: 40px;
-//             border: 1px solid #ffb340;
-//             padding: 6px 10px;
-//             a{
-//               text-decoration: none;
-//               color: #3CCACE;
-//             }
-//           }
-//           .buy-link{
-//             display: inline-block;
-//             position: relative;
-//             padding: 0.5em 1.4em;
-//             background: #668ad8;
-//             border-bottom: solid 5px #36528c;
-//             border-right: solid 5px #5375bd;/*ボタン色より暗めに*/
-//             a{
-//               text-decoration: none;
-//               color:white;
-//             }
-//           }
-//           .buy-link{
-//             text-decoration: none;
-//           }
-//           .buy-link:before {  
-//             content: " ";
-//             position: absolute;
-//             bottom: -5px;
-//             left: -1px;
-//             width: 0;
-//             height: 0;
-//             border-width: 0 6px 6px 0px;
-//             border-style: solid;
-//             border-color: transparent;
-//             border-bottom-color: #FFF;
-//           }
-//           .buy-link:after {  
-//             content: " ";
-//             position: absolute;
-//             top: -1px;
-//             right: -5px;
-//             width: 0;
-//             height: 0;
-//             border-width: 0px 6px 6px 0px;
-//             border-style: solid;
-//             border-color: #FFF;
-//             border-bottom-color: transparent;
-//           }
-//           .buy-link:active {
-//             border:none;
-//             -webkit-transform: translate(6px,6px);
-//             transform: translate(6px,6px);
-//           }
-//           .buy-link:active:after, .buybuuy:active:before {
-//             content: none;
-//           }
-//           .hata{
-//             font-size: 14px;
-//             border:1px solid lightslategrey;
-//             padding: 6px 10px;
-//             display: inline-block;
-//             border-radius: 4px;
-//             border: 1px solid #333;
-//             a{
-//               text-decoration: none;
-//               color:#333;
-//             }
-//           }
-//         }
-//       }
-//       .item-coments{
-//         padding: 24px;
-//         background-color: #fff;
-//         margin: 10px 0;
-//         text-align: center;
-//         form{
-//           margin: 0;
-//           padding: 0;
-//           textarea{
-//             width: 100%;
-//             height: 104px;
-//             padding: 10px;
-//           }
-//           p{
-//             padding: 8px;
-//             font-size: 14px;
-//             background-color: #f8f8f8;
-//             margin: 10px 0;
-//             text-align: left;
-//           }
-//           .commentBtn{
-//             line-height: 48px;
-//             background: #3CCACE;
-//             border: 1px solid #3CCACE;
-//             color: #fff;
-//             width: 60%;
-//             font-size: 18px;
-//             border-radius: 100px;
-//           }
-//         }
-//       }
-//     }  
-//   }
-//   .topform{
-//     height: 100px;
-//     margin: 20px 320px;
-//     display: flex;
-//     justify-content: space-between;
-//     a{
-//       font-size: 16px;
-//       text-decoration: none;
-//       color: #3CCACE;
-//     }
-//   }
-//   .relatedItem{
-//     margin-left:560px;
-//     font-size: 24px;
-//     font-weight: bold;
-    
-//     a{
-//       text-decoration: none;
-//       color: #3CCACE;         
-//     }
-//   }
-// }
-    
