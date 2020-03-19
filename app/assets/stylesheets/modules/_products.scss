@@ -11,6 +11,7 @@
     background-color: rgb(199, 242, 255);
     .new_product, .edit_product {
       .exhibition-input__image, #image-box{
+        height: 250px;
         .previews {
           display: flex;
           border-radius: 5px;
@@ -34,12 +35,12 @@
         }
         .input-btn {
           display: flex;
-          .image-label{
+          .image-label, .edit-image-label{
             #btn-5 {
               display: none;
             }
-            .js-file_group {
-              .js-file {
+            .js-file_group, .edit-js-file_group {
+              .js-file, .edit-js-file {
                 display: none;
               }
               .icon {
@@ -54,6 +55,17 @@
                 @include display-center();
               }
             }
+          }
+          .input-add {
+            height: 30px;
+            width: 90px;
+            margin-top: 15px;
+            background-color: white;
+            border-radius: 10px;
+            border: dashed 1px $default-color;
+            text-shadow: 0 0 1.2px gray;
+            cursor: pointer;
+            @include display-center();
           }
         }
       }
@@ -237,3 +249,15 @@
   margin-bottom: 20px;
   @include input-border-style();
 }
+
+.images {
+  height: 100px;
+  width: 100px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.p0 {
+  display: none;
+}
+

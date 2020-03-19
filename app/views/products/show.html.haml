@@ -21,7 +21,7 @@
           .content__image__sold-inner
             SOLD OUT
     .content__small-images
-      - @product.item_images.each do |img| 
+      - @product.item_images.each do |img|
         = image_tag img.src.url,class:"img-list"
     .content__price
       %span ¥
