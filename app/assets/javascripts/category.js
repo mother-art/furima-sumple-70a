@@ -8,7 +8,7 @@ $(document).on('turbolinks:load', ()=> {
       var childSelectHtml = '';
       childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
                           <div class='listing-select-wrapper__box'>
-                            <select class="listing-select-wrapper__box--select" id="child_category" name="product[category]">
+                            <select class="listing-select-wrapper__box--select" id="child_category" name="product[main_tag_id]">
                               <option value="---" data-category="---">---</option>
                               ${insertHTML}
                             <select>
@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', ()=> {
       var grandchildSelectHtml = '';
       grandchildSelectHtml = `<div class='listing-select-wrapper__added' id= 'grandchildren_wrapper'>
                                 <div class='listing-select-wrapper__box'>
-                                  <select class="listing-select-wrapper__box--select" id="grandchild_category" name="product[category]">
+                                  <select class="listing-select-wrapper__box--select" id="grandchild_category" name="product[main_tag_id]">
                                     <option value="---" data-category="---">---</option>
                                     ${insertHTML}
                                   </select>
