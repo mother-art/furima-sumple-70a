@@ -6,10 +6,9 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @product_name = MainTag.find(@product.category).name
-    @product_name2 = MainTag.find(@product.category).parent.name
-    @product_name3 = MainTag.find(@product.category).parent.parent.name
-    # binding.pry
+    @product_name = MainTag.find(@product.main_tag_id).name
+    @product_name2 = MainTag.find(@product.main_tag_id).parent.name
+    @product_name3 = MainTag.find(@product.main_tag_id).parent.parent.name
   end
 
   def new
@@ -34,6 +33,10 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_path
     else
+      @category_parent_array = ["---"]
+      MainTag.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+      end
       render :new
     end
   end
@@ -74,7 +77,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:item_name, :detail, :category, :price, :item_status, :postage_cost, :ship_area, :ship_method, :ship_date, item_images_attributes: [:src]).merge(seller_id: current_user.id, user_id: current_user.id)
+    params.require(:product).permit(:item_name, :detail, :main_tag_id, :price, :item_status, :postage_cost, :ship_area, :ship_method, :ship_date, item_images_attributes: [:src]).merge(seller_id: current_user.id, user_id: current_user.id)
   end
 
   def set_product
