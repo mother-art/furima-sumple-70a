@@ -86,3 +86,4 @@ gem 'ancestry'
 gem 'fog-aws'
 gem 'payjp'
 gem 'dotenv-rails'
+gem "gretel"
