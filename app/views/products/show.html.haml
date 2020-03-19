@@ -8,8 +8,7 @@
       =@product.item_name
     - if user_signed_in? && current_user.id == @product.user_id
       .button-box
-        -# =link_to edit_product_path(@product.id) do
-        = link_to "#" do
+        =link_to edit_product_path(@product.id) do
           %i{class:'fas fa-edit'}
         =link_to product_path(@product.id),method: :delete  do
           %i{class:'fas fa-trash-alt'}
