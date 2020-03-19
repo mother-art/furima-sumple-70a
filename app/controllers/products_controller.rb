@@ -43,8 +43,8 @@ class ProductsController < ApplicationController
   def edit
     @product = Product.find(params[:id])
     @category_parent_array = ["---"]
-    MainTag.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
+      MainTag.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
     end
   end
 
