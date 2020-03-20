@@ -11,8 +11,7 @@ class LikesController < ApplicationController
   def unlike
     like = current_user.likes.find_by(product_id: @product.id)
     like.destroy
-    flash.now[:alert] = '削除できませんでした' unless like.save 
-    end
+    flash.now[:alert] = '削除できませんでした' unless like.save
   end
 
   private
