@@ -19,13 +19,15 @@ Rails.application.routes.draw do
       get 'veri', to: 'buyer#veri'
       post 'pay', to: 'buyer#pay'
       get 'done', to: 'buyer#done'
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
     collection do
       get 'search'
     end
     resources :comments
   end
-  resources :ad
+  resources :comments
   resources :buyer  do
   end
   resources :card, only: [:new, :show] do
