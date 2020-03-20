@@ -15,10 +15,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.item_images.new
-    @category_parent_array = ["---"]
-    MainTag.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    @category_parent_array = ["---"] + MainTag.where(ancestry: nil).pluck(:name)
   end
 
   def get_category_children
@@ -34,20 +31,14 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_path
     else
-      @category_parent_array = ["---"]
-      MainTag.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-      end
+      @category_parent_array = ["---"] + MainTag.where(ancestry: nil).pluck(:name)
       render :new
     end
   end
 
   def edit
     @product = Product.find(params[:id])
-    @category_parent_array = ["---"]
-      MainTag.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-    end
+    @category_parent_array = ["---"] + MainTag.where(ancestry: nil).pluck(:name)
   end
 
   def update
