@@ -1,4 +1,6 @@
 .body
+  - breadcrumb :mypage
+  = breadcrumbs separator: " &rsaquo; "
   = render 'header'
   .user-wrapper
     .side
@@ -39,6 +41,23 @@
             お問い合わせ
           = icon 'fa', 'angle-right'
     .main
-      .main__profile
+      .main__user-name
         = current_user.nickname
+      .main__title
+        出品した商品
+      .main__products
+        - @products.each do |product|
+          = link_to product_path(product.id),class:"view__box" do
+            .view__box-hi
+              = image_tag product.item_images[0].src.url,class:"view-image"
+              .view__box-hi-price
+                %span ¥
+                = product.price
+            .view__box-row
+              .view__box-row-item_name
+                = product.item_name
+            -if product.buyer_id.present? 
+              .items-box_photo__sold
+                .items-box_photo__sold__inner
+                  SOLD
 = render 'footer'

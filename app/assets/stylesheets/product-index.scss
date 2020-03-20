@@ -1,5 +1,7 @@
-.products__view{
+.products__view, .main__products{
+    height: 1000px;
     padding: 20px 100px;
+    overflow: scroll;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -16,14 +18,14 @@
             top:-260px;
             border-radius: 10px 0 0 0 ;
             &__inner{
-              transform: rotate(-45deg);
-              font-size: 28px;
-              margin:-35px 0px 0px -55px;
-              color: #fff;
-              letter-spacing: 2px;
-              font-weight: 600;
+                transform: rotate(-45deg);
+                font-size: 28px;
+                margin:-25px 0px 0px -50px;
+                color: #fff;
+                letter-spacing: 2px;
+                font-weight: 600;
             }
-          }
+        }
         height: 260px;
         text-decoration: none;
         width: 220px;

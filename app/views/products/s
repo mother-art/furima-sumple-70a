@@ -12,14 +12,11 @@
           .previews
             - if @product.persisted?
               - @product.item_images.each_with_index do |item_image, i|
-                = image_tag item_image.src.url, data: { index: i }, size: "100×100"
+                = image_tag item_image.src.url, data: { index: i }, size: "100×100", class: "images"
           .input-btn
             = f.fields_for :item_images do |i|
-              = i.label :src, class: 'image-label' do
-                %div{data: {index: (i.index)}, class: "js-file_group"}
-                  = icon('fas','camera-retro', class: 'icon')
-                  = i.file_field :src, class: 'js-file'
-                  1枚目
+              = i.file_field :src, class: 'js-file',value: i.object.id
+              = i.hidden_field :id, value: i.object.id
       .exhibition-input__name-detail
         .exhibition-input__name-detail__text
           %strong 商品名
@@ -39,7 +36,7 @@
               .listing-default--require 必須
             .listing-select-wrapper
               .listing-select-wrapper__box
-                = f.select :main_tag_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                -# = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
         .exhibition-input__info__text
           %strong 商品の状態
           %p 必須

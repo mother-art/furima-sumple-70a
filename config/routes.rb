@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   root "users#index"
   resources :users
-  resources :products, only: [:index, :show, :new, :edit, :destroy, :create] do
+  resources :products do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -19,12 +19,14 @@ Rails.application.routes.draw do
       get 'veri', to: 'buyer#veri'
       post 'pay', to: 'buyer#pay'
       get 'done', to: 'buyer#done'
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
     collection do
       get 'search'
     end
+    resources :comments
   end
-  resources :ad
   resources :comments
   resources :buyer  do
   end
@@ -33,9 +35,8 @@ Rails.application.routes.draw do
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
     end
-   end
-  
-   post   '/like/:product_id' => 'likes#like',   as: 'like'
-   delete '/like/:product_id' => 'likes#unlike', as: 'unlike'
+  end
+  post "products/:id/update" => "products#update"
+  post   '/like/:product_id' => 'likes#like',   as: 'like'
+  delete '/like/:product_id' => 'likes#unlike', as: 'unlike'
 end
-

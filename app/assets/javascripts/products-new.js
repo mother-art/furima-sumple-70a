@@ -1,4 +1,3 @@
-//= require turbolinks
 $(document).on('turbolinks:load', ()=> {
   const buildFileField = (num)=> {
     const html = `<label class="image-label" for="product_item_images_attributes_${num}_src">
@@ -11,7 +10,6 @@ $(document).on('turbolinks:load', ()=> {
                   </label>`;
     return html;
   }
-  console.log("www")
   const buildImg = (index, url)=> {
     const html = `<img data-index="${index}" src="${url}" class="previews__image" width="100px" height="100px">`;
     return html;
@@ -26,11 +24,24 @@ $(document).on('turbolinks:load', ()=> {
     const blobUrl = window.URL.createObjectURL(file);
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
+      console.log("あかん！")
     } else {  
+      console.log("いいね！")
       $('.previews').append(buildImg(targetIndex, blobUrl));
       $('.input-btn').append(buildFileField(fileIndex[0]));
       fileIndex.shift();
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
   });
+  $(document).on("click", ".new-input", function() {
+    console.log("s");
+    $(".remove-input").remove();
+  });
+  $(document).on("click", ".input-add", function() {
+    console.log("きてます");
+    $(".input-add").remove()
+    $('.input-btn').append(buildFileField(fileIndex[0]));
+    fileIndex.shift();
+    fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+  })
 });

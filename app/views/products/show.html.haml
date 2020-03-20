@@ -1,3 +1,5 @@
+- breadcrumb :show
+= breadcrumbs separator: " &rsaquo; "
 = render'users/header'
 
 .wrapper
@@ -17,7 +19,7 @@
         -if @product.buyer_id.present? 
         .content__image__sold
           .content__image__sold-inner
-            SOLD
+            SOLD OUT
     .content__small-images
       - @product.item_images.each do |img|
         = image_tag img.src.url,class:"img-list"
@@ -33,14 +35,19 @@
     .content__info
       .content__info__left
         %li 出品者
-        %li カテゴリー
+        %li.category カテゴリー
         %li 商品の状態
         %li 発送料の負担
         %li 発送元地域
         %li 発送日の目安
       .content__info__right
         %li= @product.user.nickname
-        %li= @product.category
+        %li
+          = link_to @product_name3
+          %br/
+          = link_to @product_name2
+          %br/
+          = link_to @product_name
         %li= @product.item_status
         %li= @product.postage_cost
         %li= @product.ship_area
@@ -63,12 +70,39 @@
         不適切な商品の通報
     .content__comment 
       = form_for '#' do |f|
+      .content__option
+        .content__option__like
+          =link_to "#" do
+            %i{class: "fa fa-star"}
+              お気に入り 0
+        - if user_signed_in? && current_user.id != @product.user_id
+          .content__option__buy
+            =link_to veri_product_path(@product.id) do
+              %i{class: "buy-ss"}
+                購入する
+        .content__option__hata
+          =link_to "#" do
+            %i{class: "fa fa-flag"}
+            不適切な商品の通報
+    .content__comment
+      = form_with(model: [@product,@comment], local: true) do |f|
         .content__comment__box
           = f.text_area :body, class: "content__comment__box__input"
           %p 相手のことを考え丁寧なコメントを心がけましょう。 不快な言葉遣いなどは利用制限や退会処分となることがあります。
           %button{name:"button", type:"submit",class:"content__comment__box__btn"}
             %i{class:"fa fa-comment"}
             コメントする
+          .comment-title コメント一覧 
+    .content__comments
+      .content__comments__box
+      -@comments.each do |comment|
+        .content__comments__box__text
+          .content__comments__box__text__info
+            = link_to comment.user.nickname
+            = comment.created_at
+          .content__comments__box__text__content
+            = comment.body
+            
     .content__move
       .content__move__befor
         =link_to '#' do
@@ -80,6 +114,6 @@
           %i{class: "fas fa-angle-right"}
     .content__category-search
       =link_to "#" do
-        = @product.category
+        = link_to @product_name
         %span をもっと見る
 = render 'users/footer'

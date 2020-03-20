@@ -1,3 +1,0 @@
-class AddressController < ApplicationController
-
-end

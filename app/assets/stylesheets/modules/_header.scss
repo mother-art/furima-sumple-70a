@@ -1,5 +1,6 @@
 .pcheader {
   height: 120px;
+  min-width: 600px;
   padding: 0 64px;
   border-bottom: solid 0.1px cyan;
   .headerinner {
@@ -62,10 +63,11 @@
 .nav {
   font-size: 14px;
   display: flex;
+  justify-content: space-between;
   margin-bottom: 12px;
   line-height: 40px;
-  
   .leftlist {
+    width: 400px;
     display: flex;
     position: relative;
     @include default-text-style();
@@ -121,8 +123,9 @@
     }
   }
   .rightlist {
+    width: 200px;
+    margin-left: 20px;
     @include default-text-style();
-    margin-left: auto;
     display: flex;
     a {
       display: flex;

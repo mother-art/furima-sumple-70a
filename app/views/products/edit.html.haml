@@ -7,10 +7,21 @@
         .exhibition-input__image__text
           %strong 出品画像
           %p 必須
-        %p 最大10枚までアップロードできます
-        = f.label :image, class: 'image-label' do
-          = icon('fas','camera-retro', class: 'icon')
-          = f.file_field :image, class: 'image-label__file'
+        %p 最大5枚までアップロードできます
+        #image-box
+          .previews
+            - if @product.persisted?
+              - @product.item_images.each_with_index do |item_image, i|
+                = image_tag item_image.src.url, data: { index: i }, size: "100×100", class: "images", id: "remove-image#{item_image.id}"
+          .input-btn
+            = f.fields_for :item_images do |i|
+              = i.label :src, class: 'image-label', id: "remove-btn#{i.object.id}" do
+                %div{data: {index: (i.index)}, class: "js-file_group"}
+                  = icon('fas','camera-retro', class: 'icon')
+                  = i.file_field :src, class: 'js-file',value: i.object.id
+                = i.check_box :_destroy, id: "#{i.object.id}", class: "p#{i.index.to_s} remove-btn"
+                %span{class: "p#{i.index.to_s}"} ⇦削除
+            .input-add 追加
       .exhibition-input__name-detail
         .exhibition-input__name-detail__text
           %strong 商品名
@@ -23,14 +34,21 @@
       .exhibition-input__info
         .exhibition-input__info__title
           商品の詳細
-        .exhibition-input__info__text
-          %strong カテゴリー
-          %p 必須
-        = f.select :category, [["選択してください", ""], ["レディース", "レディース"], ["メンズ", "メンズ"], ["その他", "その他"]]
-        .exhibition-input__info__text
-          %strong ブランド
-          %span 任意
-        = f.text_field :item_name, class: "exhibition-input__info__brand", placeholder: " 例) ユニクロ"
+        .listing-form-box
+          .listing-product-detail__category
+            .listing-product-detail__category__box
+              = f.label 'カテゴリー', class: 'listing-default__label'
+              .listing-default--require 必須
+            .listing-select-wrapper
+              .listing-select-wrapper__box
+                = f.select :main_tag_id, @category_parent_array_new, {}, {class: 'listing-select-wrapper__box--select new-input', id: 'parent_category'}
+                = f.select :main_tag_id, @category_parent_array, {}, {value: @product.main_tag.parent.parent.id, class: 'listing-select-wrapper__box--select remove-input', id: 'parent_category'}
+                = f.select :main_tag_id, @category_child_array, {}, {value: @product.main_tag.parent.name, class: 'listing-select-wrapper__box--select remove-input', id: 'parent_category'}
+                = f.select :main_tag_id, @category_grandchild_array, {}, {value: @product.main_tag.parent.id, class: 'listing-select-wrapper__box--select remove-input', id: 'parent_category'}
+
+
+
+
         .exhibition-input__info__text
           %strong 商品の状態
           %p 必須
@@ -62,7 +80,7 @@
         %i 販売手数料（10%）
       
       .exhibition-input__last
-        = f.submit "編集して出品", class: "exhibition-input__last__submit"
+        = f.submit "変更を保存", class: "exhibition-input__last__submit"
         = link_to root_path do
           .exhibition-input__last__return 戻る
         .exhibition-input__last__note
