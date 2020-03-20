@@ -21,7 +21,6 @@
             border-radius: 5px;
           }
         }
-        border-bottom: $exhibition-border-bottom-style;
         &__text {
           display: flex;
           align-items: center;
@@ -75,6 +74,7 @@
         &__text {
           display: flex;
           align-items: center;
+          border-top: $exhibition-border-bottom-style;
           strong {
             font-size: 15px;
             font-weight: bold;
@@ -261,3 +261,15 @@
   display: none;
 }
 
+.remove-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: solid 1px rgb(199, 242, 255);
+  background-color: white;
+  margin: 2px 0;
+  padding-left: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: rgb(69, 69, 69);
+}

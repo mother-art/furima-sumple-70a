@@ -41,7 +41,14 @@
               .listing-default--require 必須
             .listing-select-wrapper
               .listing-select-wrapper__box
-                = f.select :main_tag_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                = f.select :main_tag_id, @category_parent_array_new, {}, {class: 'listing-select-wrapper__box--select new-input', id: 'parent_category'}
+                = f.select :main_tag_id, @category_parent_array, {}, {value: @product.main_tag.parent.parent.id, class: 'listing-select-wrapper__box--select remove-input', id: 'parent_category'}
+                = f.select :main_tag_id, @category_child_array, {}, {value: @product.main_tag.parent.name, class: 'listing-select-wrapper__box--select remove-input', id: 'parent_category'}
+                = f.select :main_tag_id, @category_grandchild_array, {}, {value: @product.main_tag.parent.id, class: 'listing-select-wrapper__box--select remove-input', id: 'parent_category'}
+
+
+
+
         .exhibition-input__info__text
           %strong 商品の状態
           %p 必須

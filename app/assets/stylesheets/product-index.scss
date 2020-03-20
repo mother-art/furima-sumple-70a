@@ -1,5 +1,7 @@
-.products__view{
+.products__view, .main__products{
+    height: 1000px;
     padding: 20px 100px;
+    overflow: scroll;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;

@@ -38,7 +38,13 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    @category_parent_array = ["---"] + MainTag.where(ancestry: nil).pluck(:name)
+    pick_parent = @product.main_tag.parent.parent
+    pick_child = @product.main_tag.parent
+    pick_grandchild = @product.main_tag
+    @category_parent_array_new = ["-新しく設定-"] + MainTag.where(ancestry: nil).pluck(:name)
+    @category_parent_array = [[pick_parent.name ,pick_parent.id]]
+    @category_child_array = [[pick_child.name, pick_child.id]]
+    @category_grandchild_array = [[pick_grandchild.name, pick_grandchild.id]]
   end
 
   def update
@@ -63,7 +69,7 @@ class ProductsController < ApplicationController
   def buyer
   end
 
-  def search
+  def search 
     @products = Product.search(params[:search]).page(params[:page]).per(20).order("created_at DESC")
   end
 

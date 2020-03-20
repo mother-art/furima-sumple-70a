@@ -1,10 +1,9 @@
 .user-wrapper {
   height: 700px;
   display: flex;
-  background-color: cadetblue;
   .side {
     height: calc(100% - 120px);
-    width: 350px;
+    width: 300px;
     background-color: rgb(199, 242, 255);
     padding: 60px 50px;
     .icon {
@@ -20,11 +19,26 @@
   }
   .main{
     height: 100%;
-    width: 100%;
-    @include display-center();
-    &__profile {
-      font-size: 70px;
+    width: calc(100% - 300px);
+    &__user-name {
+      height: 50px;
+      padding: 10px 0 15px 20px;
+      font-size: 50px;
+      background-color: rgb(199, 242, 255);
       @include default-text-style();
+    }
+    &__title {
+      height: 50px;
+      font-size: 20px;
+      color: $default-color;
+      font-weight: bold;
+      line-height: 50px;
+      text-align: center;
+      text-shadow: $default-font-shadow;
+    }
+    &__products {
+      height: calc(100% - 165px);
+      overflow: scroll;
     }
   }
 }

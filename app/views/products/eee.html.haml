@@ -1,0 +1,23 @@
+.main__box__detail
+          .main__box__detail__text
+            商品の詳細
+          .main__box__detail__category
+            .main__box__detail__category__text
+              カテゴリー
+              %span
+                必須
+            .main__box__detail__category__form
+              .main__box__detail__category__form__box
+                = form.select :category, options_for_select(@category_parent_array.map{|c|[c[:name], c[:name], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @product.category.parent.parent.id), {}, {value: @parent}
+                = form.select :category, options_for_select(@category_child_array.map{|c|[c[:name], c[:name], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'select', id: 'child_category_edit', name:""}
+                = form.select :category, options_for_select(@category_grandchildren2.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'select', id: 'grandchild_category_edit',name:"category_id", value: @item.category.id}
+                -# = @category_grandchildren2.name
+                // @category_parent_arrayの内容を選択肢に表示
+          .main__box__detail__bland
+            .main__box__detail__bland__text
+              ブランド
+              %span
+                任意
+            .main__box__detail__bland__form
+              .main__box__detail__bland__form__box
+                %input.blandform{:placeholder => "例) シャネル"}

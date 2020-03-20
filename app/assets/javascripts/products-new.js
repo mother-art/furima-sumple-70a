@@ -33,6 +33,10 @@ $(document).on('turbolinks:load', ()=> {
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
   });
+  $(document).on("click", ".new-input", function() {
+    console.log("s");
+    $(".remove-input").remove();
+  });
   $(document).on("click", ".input-add", function() {
     console.log("きてます");
     $(".input-add").remove()
