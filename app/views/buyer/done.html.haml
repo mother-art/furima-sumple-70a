@@ -1,45 +1,9 @@
-= render 'users/header'
+= render 'layouts/header'
 
-.buywrraper
-  .buy__continer
-    .buy__continer__comp
-      %P THANK YOU.
-      %P 購入が完了しました！
-      -# .buy__comp
-      -# = link_to  'トップページに戻る',root_path
-    
-    .alart
-      %h1 :他のユーザーはこのような商品を見ています
-      .pickup
-        .pickup__item
-          = link_to root_path do
-            .pickup__item__image
-            .pickup__item__info 
-              .pickup__item__info__name Tシャツ
-              .pickup__item__info__price 
-                %p ¥6,720
-                ★0
-              .pickup__item__info__tax
-                %p (税込)
-          = link_to root_path do
-            .pickup__item__image2
-            .pickup__item__info 
-              .pickup__item__info__name シャツ
-              .pickup__item__info__price 
-                %p ¥12,980
-                ★0
-              .pickup__item__info__tax
-                %p (税込)
-          = link_to root_path do
-            .pickup__item__image3
-            .pickup__item__info 
-              .pickup__item__info__name バッグ
-              .pickup__item__info__price 
-                %p ¥7,990
-                ★0
-              .pickup__item__info__tax
-                %p (税込)
-
-
-
-= render 'users/footer'
+= link_to root_path do
+  .buywrraper
+    .buy__continer
+      .buy__continer__comp
+        %P THANK YOU.
+        %P 購入が完了しました！
+= render 'layouts/footer'

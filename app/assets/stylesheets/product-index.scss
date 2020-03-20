@@ -1,10 +1,14 @@
 .products__view, .main__products{
-    height: 1000px;
+    max-height: 1000px;
     padding: 20px 100px;
     overflow: scroll;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    background: radial-gradient(rgb(215, 255, 255), rgb(239, 247, 255), rgb(181, 255, 250));
+    // background-image: image-url("pict/water.jpg");
+    // background-size: cover;
+    // background-position:center;
     .view__box{
         .items-box_photo__sold{
             width: 0;

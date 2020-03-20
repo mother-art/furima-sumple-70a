@@ -63,7 +63,7 @@
               お気に入り 0
         - if user_signed_in? && current_user.id != @product.user_id
           .content__option__buy
-            =link_to veri_product_path(@product.id) do
+            =link_to veri_product_path(@product) do
               %i{class: "buy-ss"}
                 購入する
         .content__option__hata

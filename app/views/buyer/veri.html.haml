@@ -1,4 +1,4 @@
-= render'users/header'
+= render'layouts/header'
 
 .wrapper
   .content
@@ -14,27 +14,25 @@
       .button-box
     .content__image
       = image_tag @product.item_images[0].src.url ,class:"img-view"
-    .content__small-images
-      - @product.item_images.each do |img| 
-        = image_tag img.src.url,class:"img-list"
     .content__price
       %span ¥
       = @product.price
       %span (税込)
     .content__price-ditail
       %span 送料込み
-    .content__dtail
-      %span 出品者のコメント:
-      = @product.detail
     .content__info
       .content__info__left
         %li 出品者
+        %li.category カテゴリー
         %li 商品の状態
         %li 発送料の負担
         %li 発送元地域
         %li 発送日の目安
       .content__info__right
         %li= @product.user.nickname
+        %li{style: 'border-bottom: solid 0 gray;'}= @product.main_tag.parent.name
+        %li{style: 'border-top: solid 0 gray; border-bottom: solid 0 gray;'}= @product.main_tag.parent.parent.name
+        %li{style: 'border-top: solid 0 gray;'}= @product.main_tag.name
         %li= @product.item_status
         %li= @product.postage_cost
         %li= @product.ship_area
@@ -50,5 +48,4 @@
       = exp_month + " / " + exp_year
       %br
       = form_tag(action: :pay, method: :post) do
-        %button このカードで購入する
-= render'users/footer'
+        %button#buy このカードで購入を確定

@@ -34,7 +34,7 @@
       font-weight: bold;
       line-height: 50px;
       text-align: center;
-      text-shadow: $default-font-shadow;
+      text-shadow: 0 0 4px gray;
     }
     &__products {
       height: calc(100% - 165px);
