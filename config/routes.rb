@@ -23,9 +23,9 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :comments
   end
   resources :ad
-  resources :comments
   resources :buyer  do
   end
   resources :card, only: [:new, :show] do

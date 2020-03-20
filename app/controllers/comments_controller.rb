@@ -1,21 +1,16 @@
 class CommentsController < ApplicationController
 
-  def index
-  end
+  
   def create
     @comment = Comment.create(comment_params)
+    redirect_to  product_path(@comment.product.id)
   end
-    
-  def new
-    @comment = Comment.new
-  end
-
-
   def show
-    @comment = Comment.find(params[:id])
+    @comment = Comment.new
+    @comments = @product.comments.includes(:user)
   end
-
-  def edit
-    @comment = Comment.find(params[:id])
+  private
+  def comment_params
+    params.require(:comment).permit(:body).merge(user_id: current_user.id, product_id: params[:product_id])
   end
 end

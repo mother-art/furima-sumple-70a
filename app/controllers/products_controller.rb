@@ -8,6 +8,8 @@ class ProductsController < ApplicationController
     @product_name = MainTag.find(@product.main_tag_id).name
     @product_name2 = MainTag.find(@product.main_tag_id).parent.name
     @product_name3 = MainTag.find(@product.main_tag_id).parent.parent.name
+    @comment = Comment.new
+    @comments = @product.comments.includes(:user).order("created_at DESC")
   end
 
   def new
