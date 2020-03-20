@@ -4,7 +4,9 @@ class LikesController < ApplicationController
 
   def like
     like = current_user.likes.new(product_id: @product.id)
-    like.save
+    if like.save
+    else
+    flash.now[:alert] = '登録できませんでした'
   end
 
   def unlike
