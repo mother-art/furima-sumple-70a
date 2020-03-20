@@ -45,8 +45,8 @@
       .content__option__like
         =link_to "#" do
           %i{class: "fa fa-star"}
-            お気に入り 0
-    - if user_signed_in? && current_user.id != @product.user_id        
+          お気に入り 0
+    - if user_signed_in? && current_user.id != @product.user_id
       .content__option__buy
         =link_to buyer_index_path(@product.id) do
           %i{class: "buy-ss"}

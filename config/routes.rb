@@ -33,6 +33,9 @@ Rails.application.routes.draw do
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
     end
-    end
+   end
+  
+   post   '/like/:product_id' => 'likes#like',   as: 'like'
+   delete '/like/:product_id' => 'likes#unlike', as: 'unlike'
 end
 

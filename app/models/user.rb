@@ -11,6 +11,9 @@ class User < ApplicationRecord
         has_many :comments
         has_one :address
         has_many :cards
+        has_many :likes, dependent: :destroy
+        has_many :like_tweets, through: :likes, source: :tweet
+        
         # has_one :card
         #カード機能
         # has_one :sns_credential
