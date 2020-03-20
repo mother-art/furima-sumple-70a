@@ -56,6 +56,20 @@
       .soldout
         売り切れ中
     - else
+      - if user_signed_in? && current_user.id != @product.user_id
+        .content__option__buy
+          =link_to veri_product_path(@product.id) do
+            %i{class: "buy-ss"}
+              購入する
+    .content__option__likes
+      .btn-box
+        = render partial: 'likes/like', locals: { product: @product}
+    .content__option__hata
+      =link_to "#" do
+        %i{class: "fa fa-flag"}
+        不適切な商品の通報
+    .content__comment 
+      = form_for '#' do |f|
       .content__option
         .content__option__like
           =link_to "#" do

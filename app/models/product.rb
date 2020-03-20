@@ -10,4 +10,7 @@ class Product < ApplicationRecord
         return Product.all unless search
         Product.where('item_name LIKE(?)', "%#{search}%")
     end
+    has_many :likes, dependent: :destroy
+    has_many :liking_users, through: :likes, source: :user
+   
 end

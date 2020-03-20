@@ -37,5 +37,6 @@ Rails.application.routes.draw do
     end
   end
   post "products/:id/update" => "products#update"
+  post   '/like/:product_id' => 'likes#like',   as: 'like'
+  delete '/like/:product_id' => 'likes#unlike', as: 'unlike'
 end
-

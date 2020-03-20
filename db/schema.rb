@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2020_03_19_034504) do
     t.index ["product_id"], name: "index_item_images_on_product_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_likes_on_product_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "main_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -72,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_03_19_034504) do
     t.bigint "user_id", null: false
     t.integer "buyer_id"
     t.integer "seller_id"
+    t.integer "likes_count"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
