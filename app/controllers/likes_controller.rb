@@ -4,16 +4,14 @@ class LikesController < ApplicationController
 
   def like
     like = current_user.likes.new(product_id: @product.id)
-    if like.save
-    else
-    flash.now[:alert] = '登録できませんでした'
+    like.save
+    flash.now[:alert] = '登録できませんでした' unless like.save
   end
 
   def unlike
     like = current_user.likes.find_by(product_id: @product.id)
-    if like.destroy
-    else
-    flash.now[:alert] = '削除できませんでした'
+    like.destroy
+    flash.now[:alert] = '削除できませんでした' unless like.save 
     end
   end
 
