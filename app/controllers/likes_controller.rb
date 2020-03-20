@@ -9,15 +9,16 @@ class LikesController < ApplicationController
 
   def unlike
     like = current_user.likes.find_by(product_id: @product.id)
-    like.destroy
+    if like.destroy
+    else
+    flash.now[:alert] = '削除できませんでした'
+    end
   end
 
   private
 
   def set_variables
     @product = Product.find(params[:product_id])
-      # @id_name = "#like-link-#{@product.id}"
-      # @id_heart = "#heart-#{@product.id}"
   end
 
 end
