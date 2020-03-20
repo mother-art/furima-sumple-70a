@@ -35,7 +35,7 @@
     .content__info
       .content__info__left
         %li 出品者
-        %li カテゴリー
+        %li.category カテゴリー
         %li 商品の状態
         %li 発送料の負担
         %li 発送元地域
@@ -89,6 +89,6 @@
           %i{class: "fas fa-angle-right"}
     .content__category-search
       =link_to "#" do
-        = @product.main_tag
+        = link_to @product_name
         %span をもっと見る
 = render 'users/footer'

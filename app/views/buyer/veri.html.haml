@@ -29,14 +29,12 @@
     .content__info
       .content__info__left
         %li 出品者
-        %li カテゴリー
         %li 商品の状態
         %li 発送料の負担
         %li 発送元地域
         %li 発送日の目安
       .content__info__right
         %li= @product.user.nickname
-        %li= @product.category
         %li= @product.item_status
         %li= @product.postage_cost
         %li= @product.ship_area
