@@ -29,8 +29,9 @@
             =link_to new_card_path, class: "credit-btn" do
               クレジットカードを追加する
         .about
-          支払い方法について
-          %i.fa.fa-angle-right
+          = link_to products_path data: {"turbolinks" => false} do
+            商品一覧に戻る
+            %i.fa.fa-angle-right
 
 =render 'users/footer'
 
