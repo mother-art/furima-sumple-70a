@@ -350,7 +350,7 @@ DEPENDENCIES
   ancestry
   bootsnap (>= 1.1.0)
   byebug
-  capistrano
+  capistrano (>= 3.12.0)
   capistrano-bundler
   capistrano-rails
   capistrano-rails-console
