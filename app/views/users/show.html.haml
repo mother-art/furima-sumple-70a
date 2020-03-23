@@ -21,13 +21,13 @@
               購入した商品
             = icon 'fa', 'angle-right'
         %li 
-          .content-card
-            =link_to  new_card_path do
+          .content-card 
+            =link_to  new_card_path, data: {"turbolinks" => false} do
               クレジットカード登録
             = icon 'fa', 'angle-right'
         %li 
           .content-card
-            =link_to delete_card_index_path do
+            =link_to delete_card_index_path, data: {"turbolinks" => false} do
               クレジットカード削除
             = icon 'fa', 'angle-right'
         %li 
