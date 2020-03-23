@@ -1,5 +1,8 @@
 class Product < ApplicationRecord
     validates :price, presence: true, format: {with: /\A[0-9]+\z/, message: "全角数字は入力できません。"}
+    validates :item_status, :postage_cost, :ship_area, :ship_method, :ship_date, presence: true
+
+
     has_many :comments
     belongs_to :user
     belongs_to :main_tag

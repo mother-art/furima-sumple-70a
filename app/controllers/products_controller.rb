@@ -32,7 +32,8 @@ class ProductsController < ApplicationController
       redirect_to root_path
     else
       @category_parent_array = ["---"] + MainTag.where(ancestry: nil).pluck(:name)
-      render :new
+      flash[:alert] = "出品できませんでした"
+      redirect_to "/products/new"
     end
   end
 
