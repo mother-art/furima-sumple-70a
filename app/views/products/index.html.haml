@@ -12,12 +12,10 @@
       .view__box-row
         .view__box-row-item_name
           = product.item_name
-      -if product.buyer_id.present? 
+      -if product.buyer_id.present?
         .items-box_photo__sold
           .items-box_photo__sold__inner
             SOLD
-          -# .view__box-row-good
-          -#   = product.good  良いね機能用
 .pagenate
   .pagenate-text
     = paginate(@products)
