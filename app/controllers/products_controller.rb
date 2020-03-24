@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :correct_user, only: [:edit, :update]
   def index
     @products = Product.includes(:user).page(params[:page]).per(20).order("created_at DESC")
   end
@@ -81,5 +82,12 @@ class ProductsController < ApplicationController
   
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def correct_user
+    @product = current_user.products.find_by(id: params[:id])
+      unless @product
+        redirect_to root_path
+      end
   end
 end
