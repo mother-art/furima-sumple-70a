@@ -12,7 +12,7 @@
             = icon 'fa', 'angle-right'
         %li
           .side-index
-            =link_to '#' do
+            =link_to user_path(current_user.id) do
               出品した商品
             = icon 'fa', 'angle-right'
         %li 
@@ -32,7 +32,7 @@
             = icon 'fa', 'angle-right'
         %li 
           .content-card
-            =link_to delete_card_index_path, data: {"turbolinks" => false} do
+            =link_to delete_card_index_path do
               クレジットカード削除
             = icon 'fa', 'angle-right'
         %li 
@@ -49,20 +49,16 @@
       .main__user-name
         = current_user.nickname
       .main__title
-        出品した商品
+        いいね!した商品
       .main__products
-        - @products.each do |product|
-          = link_to product_path(product.id),class:"view__box" do
+        - @likes.each do |like|
+          = link_to product_path(like.product.id),class:"view__box" do
             .view__box-hi
-              = image_tag product.item_images[0].src.url,class:"view-image"
+              = image_tag like.product.item_images[0].src.url,class:"view-image"
               .view__box-hi-price
                 %span ¥
-                = product.price
+                =like.product.price
             .view__box-row
               .view__box-row-item_name
-                = product.item_name
-            -if product.buyer_id.present? 
-              .items-box_photo__sold
-                .items-box_photo__sold__inner
-                  SOLD
+                = like.product.item_name
 = render 'footer'
