@@ -53,7 +53,15 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
 
     else
-      render :edit
+      pick_parent = @product.main_tag.parent.parent
+      pick_child = @product.main_tag.parent
+      pick_grandchild = @product.main_tag
+      @category_parent_array_new = ["-新しく設定-"] + MainTag.where(ancestry: nil).pluck(:name)
+      @category_parent_array = [[pick_parent.name ,pick_parent.id]]
+      @category_child_array = [[pick_child.name, pick_child.id]]
+      @category_grandchild_array = [[pick_grandchild.name, pick_grandchild.id]]
+      flash[:alert] = "編集に失敗しました"
+      redirect_to "/products/#{@product.id}/edit"
     end
   end
 
