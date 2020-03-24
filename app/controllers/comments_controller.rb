@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     @comment = Comment.create(comment_params)
     redirect_to  product_path(@comment.product.id)
   end
+  
   def show
     @comment = Comment.new
     @comments = @product.comments.includes(:user)

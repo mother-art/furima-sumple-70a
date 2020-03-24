@@ -1,6 +1,7 @@
 = render 'users/header'
 
 .exhibition-page
+  = flash[:alert]
   .exhibition-input
     = form_for @product do |f|
       .exhibition-input__image
@@ -50,7 +51,7 @@
         .exhibition-input__delivery__text
           %strong 配送方法
           %p 必須
-        = f.select :ship_method, [["選択してください", ""], ["佐川急便", "佐川急便"], ["クロネコヤマト", "クロネコヤマト"]]
+        = f.select :ship_method, [["選択してください", ""],["佐川急便", "佐川急便"], ["クロネコヤマト", "クロネコヤマト"]]
         .exhibition-input__delivery__text
           %strong 配送料の負担
           %p 必須
