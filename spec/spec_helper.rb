@@ -12,6 +12,8 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
+
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -27,11 +29,7 @@ RSpec.configure do |config|
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
-
-  config.before(:all) do
-    FactoryBot.reload
-  end
-
+  
   # rspec-mocks config goes here. You can use an alternate test double
   # library (such as bogus or mocha) by changing the `mock_with` option here.
   config.mock_with :rspec do |mocks|
@@ -39,6 +37,10 @@ RSpec.configure do |config|
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
+  end
+
+  config.before(:all) do
+    FactoryBot.reload
   end
 
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
