@@ -80,71 +80,20 @@
   .pickup
     .pickup__title 
       .pickup__title__in
-        ピックアップカテゴリー
-        %p 新規投稿商品
+        NEW ITEMS !!
+        %p 新規商品
     .pickup__item
-      = link_to root_path do
-        .pickup__item__image
-        .pickup__item__info 
-          .pickup__item__info__name Tシャツ
-          .pickup__item__info__price 
-            %p ¥6,720
-            ★0
-          .pickup__item__info__tax
-            %p (税込)
-      = link_to root_path do
-        .pickup__item__image2
-        .pickup__item__info 
-          .pickup__item__info__name シャツ
-          .pickup__item__info__price 
-            %p ¥12,980
-            ★0
-          .pickup__item__info__tax
-            %p (税込)
-      = link_to root_path do
-        .pickup__item__image3
-        .pickup__item__info 
-          .pickup__item__info__name バッグ
-          .pickup__item__info__price 
-            %p ¥7,990
-            ★0
-          .pickup__item__info__tax
-            %p (税込)
+      -@products.reverse_each.first(3).each do |product|
+        = link_to product_path(product) do
+          .pickup__item__image
+            = image_tag product.item_images[0].src.url, class: "pickup-images"
+          .pickup__item__info 
+            .pickup__item__info__name
+              = product.item_name
+            .pickup__item__info__price 
+              = product.price.to_s + "円"
+              %span (税込)
   
-  .pickup
-    .pickup__title 
-      .pickup__title__in
-        ピックアップブランド
-        %p アーカイバ
-    .pickup__item
-      = link_to root_path do
-        .pickup__item__image
-        .pickup__item__info 
-          .pickup__item__info__name Tシャツ
-          .pickup__item__info__price 
-            %p ¥6,720
-            ★0
-          .pickup__item__info__tax
-            %p (税込)
-      = link_to root_path do
-        .pickup__item__image2
-        .pickup__item__info 
-          .pickup__item__info__name シャツ
-          .pickup__item__info__price 
-            %p ¥12,980
-            ★0
-          .pickup__item__info__tax
-            %p (税込)
-      = link_to root_path do
-        .pickup__item__image3
-        .pickup__item__info 
-          .pickup__item__info__name バッグ
-          .pickup__item__info__price 
-            %p ¥7,990
-            ★0
-          .pickup__item__info__tax
-            %p (税込)
-
 - if user_signed_in?
   .exhibition-btn
     = link_to new_product_path do
