@@ -62,7 +62,7 @@
             .btn-box
               = render partial: 'likes/like', locals: { product: @product}
           .content__option__buy
-            =link_to veri_product_path(@product.id) do
+            =link_to veri_product_path(@product.id), data: {"turbolinks" => false} do
               %i{class: "buy-ss"}
                 購入する
           .content__option__hate
