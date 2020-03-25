@@ -12,6 +12,6 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1'
   }
 
-  config.fog_directory  = 'furima-sumple-70a'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/furima-sumple-70a'
+  config.fog_directory  = 'furima-sample-70a'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/furima-sample-70a'
 end
