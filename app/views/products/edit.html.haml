@@ -1,6 +1,7 @@
 = render 'users/header'
 
 .exhibition-page
+  = flash[:alert]
   .exhibition-input
     = form_for @product do |f|
       .exhibition-input__image

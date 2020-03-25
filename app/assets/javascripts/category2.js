@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', ()=> {
       childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
                           <div class='listing-select-wrapper__box'>
                             <select class="listing-select-wrapper__box--select" id="child_category" name="product[main_tag_id]">
-                              <option value="---" data-category="---">---</option>
+                              <option value="---" data-category="---">選択してください[必須]</option>
                               ${insertHTML}
                             <select>
                           </div>
@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', ()=> {
       grandchildSelectHtml = `<div class='listing-select-wrapper__added' id= 'grandchildren_wrapper'>
                                 <div class='listing-select-wrapper__box'>
                                   <select class="listing-select-wrapper__box--select" id="grandchild_category" name="product[main_tag_id]">
-                                    <option value="---" data-category="---">---</option>
+                                    <option value="---" data-category="---">選択してください[必須]</option>
                                     ${insertHTML}
                                   </select>
                                 </div>
